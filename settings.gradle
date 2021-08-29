@@ -1,4 +1,4 @@
 rootProject.name = 'cloud-runtimes'
 
-include 'cloud-runtimes'
+include 'api'
 
