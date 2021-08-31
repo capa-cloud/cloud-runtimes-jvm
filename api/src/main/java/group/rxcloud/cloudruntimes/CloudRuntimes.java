@@ -2,7 +2,10 @@ package group.rxcloud.cloudruntimes;
 
 import group.rxcloud.cloudruntimes.domain.*;
 
-public interface CoreRuntimes extends
+/**
+ * Cloud Runtimes standard API defined.
+ */
+public interface CloudRuntimes extends
         InvocationRuntimes,
         PubSubRuntimes,
         BindingRuntimes,

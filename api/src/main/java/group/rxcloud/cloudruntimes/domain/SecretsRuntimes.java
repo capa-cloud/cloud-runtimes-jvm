@@ -6,6 +6,9 @@ import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
+/**
+ * Secrets Runtimes standard API defined.
+ */
 public interface SecretsRuntimes {
 
     /**

@@ -2,10 +2,14 @@ package group.rxcloud.cloudruntimes.domain;
 
 import group.rxcloud.cloudruntimes.domain.invocation.HttpExtension;
 import group.rxcloud.cloudruntimes.domain.invocation.InvokeMethodRequest;
+import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
+/**
+ * Service-to-Service Invocation Runtimes standard API defined.
+ */
 public interface InvocationRuntimes {
 
     /**

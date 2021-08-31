@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Microsoft Corporation and CloudRuntimes Contributors.
+ * Copyright (c) CloudRuntimes Contributors.
  * Licensed under the MIT License.
  */
 
@@ -51,6 +51,7 @@ public class StateOptions {
     }
 
     public enum Consistency {
+
         EVENTUAL("eventual"),
         STRONG("strong");
 
@@ -70,6 +71,7 @@ public class StateOptions {
     }
 
     public enum Concurrency {
+
         FIRST_WRITE("first-write"),
         LAST_WRITE("last-write");
 

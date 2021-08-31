@@ -1,10 +1,14 @@
 package group.rxcloud.cloudruntimes.domain;
 
 import group.rxcloud.cloudruntimes.domain.state.*;
+import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
+/**
+ * State Management Runtimes standard API defined.
+ */
 public interface StateRuntimes {
 
     /**
@@ -126,7 +130,6 @@ public interface StateRuntimes {
      */
     Mono<Void> executeStateTransaction(String storeName,
                                        List<TransactionalStateOperation<?>> operations);
-
 
     /**
      * Execute a transaction.

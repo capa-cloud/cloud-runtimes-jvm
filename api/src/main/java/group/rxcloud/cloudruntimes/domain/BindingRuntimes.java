@@ -1,10 +1,14 @@
 package group.rxcloud.cloudruntimes.domain;
 
 import group.rxcloud.cloudruntimes.domain.binding.InvokeBindingRequest;
+import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
+/**
+ * Resource Bindings Runtimes standard API defined.
+ */
 public interface BindingRuntimes {
 
     /**

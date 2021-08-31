@@ -1,9 +1,9 @@
 /*
- * Copyright (c) Microsoft Corporation and CloudRuntimes Contributors.
+ * Copyright (c) CloudRuntimes Contributors.
  * Licensed under the MIT License.
  */
 
-package group.rxcloud.cloudruntimes.domain;
+package group.rxcloud.cloudruntimes.utils;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

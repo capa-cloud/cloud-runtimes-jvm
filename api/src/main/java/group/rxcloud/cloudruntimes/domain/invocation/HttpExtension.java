@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Microsoft Corporation and CloudRuntimes Contributors.
+ * Copyright (c) CloudRuntimes Contributors.
  * Licensed under the MIT License.
  */
 

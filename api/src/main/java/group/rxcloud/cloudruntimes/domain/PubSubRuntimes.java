@@ -5,6 +5,9 @@ import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
+/**
+ * Publish and Subscribe Runtimes standard API defined.
+ */
 public interface PubSubRuntimes {
 
     /**
