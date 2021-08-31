@@ -1,4 +1,0 @@
-rootProject.name = 'cloud-runtimes'
-
-include 'api'
-
