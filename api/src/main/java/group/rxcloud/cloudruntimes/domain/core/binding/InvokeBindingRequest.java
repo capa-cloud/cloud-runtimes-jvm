@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 
-package group.rxcloud.cloudruntimes.domain.binding;
+package group.rxcloud.cloudruntimes.domain.core.binding;
 
 import java.util.Collections;
 import java.util.Map;

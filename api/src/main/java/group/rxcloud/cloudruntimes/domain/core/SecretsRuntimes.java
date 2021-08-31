@@ -1,7 +1,7 @@
-package group.rxcloud.cloudruntimes.domain;
+package group.rxcloud.cloudruntimes.domain.core;
 
-import group.rxcloud.cloudruntimes.domain.secrets.GetBulkSecretRequest;
-import group.rxcloud.cloudruntimes.domain.secrets.GetSecretRequest;
+import group.rxcloud.cloudruntimes.domain.core.secrets.GetBulkSecretRequest;
+import group.rxcloud.cloudruntimes.domain.core.secrets.GetSecretRequest;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;

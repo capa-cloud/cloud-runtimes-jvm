@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 
-package group.rxcloud.cloudruntimes.domain.secrets;
+package group.rxcloud.cloudruntimes.domain.core.secrets;
 
 import java.util.Collections;
 import java.util.Map;

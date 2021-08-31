@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 
-package group.rxcloud.cloudruntimes.domain.pubsub;
+package group.rxcloud.cloudruntimes.domain.core.pubsub;
 
 import java.util.Collections;
 import java.util.HashMap;

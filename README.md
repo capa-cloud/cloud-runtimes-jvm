@@ -4,7 +4,8 @@ Cloud Runtimes Specification for the JVM
 
 ## Introduction
 
-Standard API for [dapr](https://docs.dapr.io/concepts/building-blocks-concept/) / [layotto](https://github.com/mosn/layotto) / [capa](https://github.com/reactivegroup/capa)
+Standard API for [dapr](https://docs.dapr.io/concepts/building-blocks-concept/)
+/ [layotto](https://github.com/mosn/layotto) / [capa](https://github.com/reactivegroup/capa) / ...
 
 ## Motivation
 
@@ -14,3 +15,30 @@ Standard API for [dapr](https://docs.dapr.io/concepts/building-blocks-concept/) 
 
 [Decompose core-API and enhanced-API.](https://github.com/dapr/dapr/issues/3600)
 
+## Getting Started
+
+#### Importing CloudRuntimes's Java SDK
+
+For a Maven project, add the following to your `pom.xml` file:
+
+```xml
+
+<project>
+    ...
+    <dependencies>
+        ...
+
+        ...
+    </dependencies>
+    ...
+</project>
+```
+
+For a Gradle project, add the following to your `build.gradle` file:
+
+```
+dependencies {
+...
+   
+}
+```

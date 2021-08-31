@@ -1,6 +1,6 @@
-package group.rxcloud.cloudruntimes.domain;
+package group.rxcloud.cloudruntimes.domain.core;
 
-import group.rxcloud.cloudruntimes.domain.binding.InvokeBindingRequest;
+import group.rxcloud.cloudruntimes.domain.core.binding.InvokeBindingRequest;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Mono;
 

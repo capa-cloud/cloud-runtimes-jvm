@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 
-package group.rxcloud.cloudruntimes.domain.invocation;
+package group.rxcloud.cloudruntimes.domain.core.invocation;
 
 /**
  * A request to invoke a service.

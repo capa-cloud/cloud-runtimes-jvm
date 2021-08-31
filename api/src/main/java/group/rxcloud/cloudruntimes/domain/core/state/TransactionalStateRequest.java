@@ -3,7 +3,7 @@
  * Licensed under the MIT License.
  */
 
-package group.rxcloud.cloudruntimes.domain.state;
+package group.rxcloud.cloudruntimes.domain.core.state;
 
 import java.util.Collections;
 import java.util.List;
