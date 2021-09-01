@@ -28,9 +28,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:reactivegroup/cloud-runtimes-jvm.git</connection>
-        <developerConnection>scm:git:git@github.com:reactivegroup/cloud-runtimes-jvm.git</developerConnection>
-        <url>git@github.com:reactivegroup/cloud-runtimes-jvm.git</url>
+        <connection>scm:git:git@github.io:reactivegroup/cloud-runtimes-jvm.git</connection>
+        <developerConnection>scm:git:git@github.io:reactivegroup/cloud-runtimes-jvm.git</developerConnection>
+        <url>git@github.io:reactivegroup/cloud-runtimes-jvm.git</url>
     </scm>
 
     <profiles>
