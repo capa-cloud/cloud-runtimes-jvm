@@ -4,6 +4,9 @@ import group.rxcloud.cloudruntimes.CoreCloudRuntimes;
 import group.rxcloud.cloudruntimes.EnhancedCloudRuntimes;
 import reactor.core.publisher.Mono;
 
+/**
+ * Cloud Runtimes JVM Client.
+ */
 public interface CloudRuntimesClient extends AutoCloseable, CoreCloudRuntimes, EnhancedCloudRuntimes {
 
     /**
