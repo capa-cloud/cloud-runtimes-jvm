@@ -19,7 +19,7 @@ public class GetStateRequest {
 
     private Map<String, String> metadata;
 
-    private StateOptions stateOptions;
+    private group.rxcloud.cloudruntimes.domain.core.state.StateOptions stateOptions;
 
     public GetStateRequest(String storeName, String key) {
         this.storeName = storeName;
@@ -34,7 +34,7 @@ public class GetStateRequest {
         return key;
     }
 
-    public StateOptions getStateOptions() {
+    public group.rxcloud.cloudruntimes.domain.core.state.StateOptions getStateOptions() {
         return stateOptions;
     }
 

@@ -21,7 +21,7 @@ public class DeleteStateRequest {
 
     private String etag;
 
-    private StateOptions stateOptions;
+    private group.rxcloud.cloudruntimes.domain.core.state.StateOptions stateOptions;
 
     public DeleteStateRequest(String storeName, String key) {
         this.stateStoreName = storeName;
@@ -45,7 +45,7 @@ public class DeleteStateRequest {
         return this;
     }
 
-    public StateOptions getStateOptions() {
+    public group.rxcloud.cloudruntimes.domain.core.state.StateOptions getStateOptions() {
         return stateOptions;
     }
 

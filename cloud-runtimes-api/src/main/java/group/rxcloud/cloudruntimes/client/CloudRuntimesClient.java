@@ -1,4 +1,4 @@
-package group.rxcloud;
+package group.rxcloud.cloudruntimes.client;
 
 import group.rxcloud.cloudruntimes.CoreCloudRuntimes;
 import group.rxcloud.cloudruntimes.EnhancedCloudRuntimes;

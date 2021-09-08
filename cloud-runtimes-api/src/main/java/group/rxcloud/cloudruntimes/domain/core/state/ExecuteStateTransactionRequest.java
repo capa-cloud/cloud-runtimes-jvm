@@ -19,7 +19,7 @@ public class ExecuteStateTransactionRequest {
     /**
      * Transactional operations list.
      */
-    private List<TransactionalStateOperation<?>> operations;
+    private List<group.rxcloud.cloudruntimes.domain.core.state.TransactionalStateOperation<?>> operations;
 
     /**
      * Metadata used for transactional operations.
@@ -34,7 +34,7 @@ public class ExecuteStateTransactionRequest {
         return stateStoreName;
     }
 
-    public ExecuteStateTransactionRequest setOperations(List<TransactionalStateOperation<?>> operations) {
+    public ExecuteStateTransactionRequest setOperations(List<group.rxcloud.cloudruntimes.domain.core.state.TransactionalStateOperation<?>> operations) {
         this.operations = operations == null ? null : Collections.unmodifiableList(operations);
         return this;
     }

@@ -18,7 +18,7 @@ public class TransactionalStateOperation<T> {
     /**
      * State values to be operated on.
      */
-    private final State<T> request;
+    private final group.rxcloud.cloudruntimes.domain.core.state.State<T> request;
 
     /**
      * Construct an immutable transactional state operation object.
@@ -26,7 +26,7 @@ public class TransactionalStateOperation<T> {
      * @param operationType The type of operation done.
      * @param state         The required state.
      */
-    public TransactionalStateOperation(OperationType operationType, State<T> state) {
+    public TransactionalStateOperation(OperationType operationType, group.rxcloud.cloudruntimes.domain.core.state.State<T> state) {
         this.operation = operationType;
         this.request = state;
     }

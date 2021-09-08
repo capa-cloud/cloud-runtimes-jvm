@@ -5,6 +5,8 @@
 
 package group.rxcloud.cloudruntimes.domain.core.invocation;
 
+import java.util.Map;
+
 /**
  * A request to invoke a service.
  */
@@ -16,9 +18,11 @@ public class InvokeMethodRequest {
 
     private Object body;
 
-    private HttpExtension httpExtension;
+    private group.rxcloud.cloudruntimes.domain.core.invocation.HttpExtension httpExtension;
 
     private String contentType;
+
+    private Map<String, String> metadata;
 
     public InvokeMethodRequest(String appId, String method) {
         this.appId = appId;
@@ -42,7 +46,7 @@ public class InvokeMethodRequest {
         return this;
     }
 
-    public HttpExtension getHttpExtension() {
+    public group.rxcloud.cloudruntimes.domain.core.invocation.HttpExtension getHttpExtension() {
         return httpExtension;
     }
 
@@ -58,5 +62,13 @@ public class InvokeMethodRequest {
     public InvokeMethodRequest setContentType(String contentType) {
         this.contentType = contentType;
         return this;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
     }
 }

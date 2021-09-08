@@ -1,4 +1,4 @@
-package group.rxcloud;
+package group.rxcloud.cloudruntimes.client;
 
 /**
  * Cloud Runtimes Client Provider.
