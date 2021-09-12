@@ -46,6 +46,7 @@
 
     <modules>
         <module>cloud-runtimes-api</module>
+        <module>cloud-runtimes-springboot</module>
     </modules>
 
     <properties>
@@ -53,6 +54,21 @@
         <file.encoding>UTF-8</file.encoding>
         <maven.version>3.8.1</maven.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>group.rxcloud</groupId>
+                <artifactId>cloud-runtimes-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>group.rxcloud</groupId>
+                <artifactId>cloud-runtimes-springboot</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
