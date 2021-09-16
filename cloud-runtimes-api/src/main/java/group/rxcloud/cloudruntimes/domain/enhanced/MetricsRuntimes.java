@@ -10,6 +10,7 @@ import java.util.Map;
 public interface MetricsRuntimes {
 
     // see https://github.com/reactivegroup/cloud-runtimes-jvm/issues/2
+
     /*
      * transaction ： 跨越一段时间（请求）
      * event ： 感兴趣的事件（异常）
@@ -21,9 +22,9 @@ public interface MetricsRuntimes {
 
     Mono<Void> endTransaction(String name, String type, Map<String, String> values);
 
-    Mono<Void> saveEvent(String name, String type, Map<String, String> values);
+    Mono<Void> logEvent(String name, String type, Map<String, String> values);
 
-    Mono<Void> saveHeartbeat(String name, String type, Map<String, String> values);
+    Mono<Void> logHeartbeat(String name, String type, Map<String, String> values);
 
-    Mono<Void> saveMetric(String name, String type, Map<String, String> values);
+    Mono<Void> logMetric(String name, String type, Map<String, String> values);
 }
