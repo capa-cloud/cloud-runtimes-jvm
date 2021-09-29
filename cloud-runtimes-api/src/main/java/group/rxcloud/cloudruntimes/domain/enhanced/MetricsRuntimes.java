@@ -1,5 +1,6 @@
 package group.rxcloud.cloudruntimes.domain.enhanced;
 
+import group.rxcloud.cloudruntimes.domain.enhanced.metrics.OnEventRequest;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -27,4 +28,6 @@ public interface MetricsRuntimes {
     Mono<Void> logHeartbeat(String name, String type, Map<String, String> values);
 
     Mono<Void> logMetric(String name, String type, Map<String, String> values);
+
+    Mono<Void> OnEvent(OnEventRequest onEventRequest);
 }

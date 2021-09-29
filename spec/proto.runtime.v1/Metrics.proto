@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package spec.proto.runtime.v1;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/any.proto";
+
+option go_package = "mosn.io/layotto/spec/proto/runtime/v1;runtime";
+option java_outer_classname = "RuntimeProto";
+option java_package = "spec.proto.runtime.v1";
+
+service Runtime {
+  // log event.
+  rpc OnEvent(OnEventRequest) returns (google.protobuf.Empty) {}
+  // start transaction, get the unique transaction id.
+  rpc CreateEventAlarm(CreateEventAlarmRequest) returns (CreateEventAlarmResponse) {}
+  // record action in transaction.
+  rpc DeleteEventAlarm(DeleteEventAlarmRequest) returns (google.protobuf.Empty) {}
+  // start transaction, get the unique transaction id.
+  rpc CreateIndex(CreateIndexRequest) returns (CreateIndexResponse) {}
+  // record action in transaction.
+  rpc publishIndexData(PublishIndexDataRequest) returns (google.protobuf.Empty) {}
+  rpc CreateIndexAlarm(CreateIndexAlarmRequest) returns (CreateIndexAlarmResponse) {}
+  rpc DeleteIndexAlarm(DeleteIndexAlarmRequest) returns (google.protobuf.Empty) {}
+  // start transaction, get the unique transaction id.
+  rpc StartTransaction(StartTransactionRequest) returns (StartTransactionAlarmResponse) {}
+  // record action in transaction.
+  rpc RecordAction(RecordActionRequest) returns (google.protobuf.Empty) {}
+}
+message Event {
+  required string event_name = 1;
+  optional string desciption = 2;
+  required long timestamp = 3;
+}
+message OnEventRequest {
+  required string app_id = 1;
+  required Event event = 2;
+}
+message Alarm {
+  optional string alarm_name = 1;
+  optional repeated string handlers = 2;
+}
+message EventAlarm {
+  Alarm alarm = 1;
+  string event_name = 2;
+}
+message CreateEventAlarmRequest {
+  required string app_id = 1;
+  required string event_name = 2;
+  required string alarm_name = 3;
+  optional repeated string handlers = 4;
+}
+message CreateEventAlarmResponse {
+  required string app_id = 1;
+  EventAlarm event_alarm = 2;
+}
+message DeleteEventAlarmRequest {
+  required string app_id = 1;
+  required string event_name = 2;
+  required string alarm_name = 3;
+}
+message Index {
+  string index_name = 1;
+  string data_type = 2;
+  repeated string processors = 3;
+}
+message CreateIndexRequest {
+  required string app_id = 1;
+  required string index_name = 2;
+  required string data_type = 3;
+  repeated string processors = 4;
+}
+message CreateIndexResponse {
+  required string app_id = 1;
+  Index index = 2;
+}
+message PublishIndexDataRequest {
+  required string app_id = 1;
+  required string index_name = 2;
+  required string value = 3;
+  required long timestamp = 4;
+}
+message IndexAlarm {
+  string index_name = 1;
+  Alarm alarm = 2;
+  // perhaps regular expression? or use structures with some pre-defined enums.
+  string rule = 3;
+}
+message CreateIndexAlarmRequest {
+  required string app_id = 1;
+  required string index_name = 2;
+  required string alarm_name = 3;
+  repeated string handlers = 4;
+  required string rule = 5;
+}
+message CreateIndexAlarmResponse {
+  required string app_id = 1;
+  IndexAlarm index_alarm = 2;
+}
+message DeleteIndexAlarmRequest {
+  required string app_id = 1;
+  required string index_name = 2;
+  required string alarm_name = 3;
+}
+message StartTransactionRequest {
+  required string app_id = 1;
+  required string transaction_name = 2;
+}
+message StartTransactionAlarmResponse {
+  required string app_id = 1;
+  string transaction_id = 2;
+  string transaction_name = 3;
+}
+message RecordActionRequest {
+  required string app_id = 1;
+  required string transaction_id = 2;
+  required string action_name = 3;
+  optiona map<string, string> action_details = 4;
+  long timestamp = 5;
+}
