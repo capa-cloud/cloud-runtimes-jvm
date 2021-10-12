@@ -11,6 +11,7 @@ import group.rxcloud.cloudruntimes.domain.core.pubsub.PublishEventRequest;
 import group.rxcloud.cloudruntimes.domain.core.secrets.GetBulkSecretRequest;
 import group.rxcloud.cloudruntimes.domain.core.secrets.GetSecretRequest;
 import group.rxcloud.cloudruntimes.domain.core.state.*;
+import group.rxcloud.cloudruntimes.domain.enhanced.database.*;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -275,6 +276,76 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
 
     @Override
     default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<GetConnectionResponse> getConnection(GetConnectionRequest req) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<CreateTableResponse> createTable(CreateTableRequest req) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<DeleteTableResponse> deleteTable(DeleteTableRequest req) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<InsertResponse> insert(InsertRequest req) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Mono<QueryResponse<T>> query(QueryRequest req, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<UpdateResponse> update(UpdateRequest req) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<InsertResponse> insert(String dbName, String tableName, Object data) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Mono<QueryResponse<T>> query(String dbName, String tableName, Object data, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<UpdateResponse> update(String dbName, String tableName, Object data) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Void> BeginTransaction() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Void> UpdateTransaction() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Void> QueryTransaction() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Void> CommitTransaction() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Void> RollbackTransaction() {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
