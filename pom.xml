@@ -7,7 +7,7 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1.RELEASE</version>
+    <version>${revision}</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
@@ -53,6 +53,7 @@
         <java.version>8</java.version>
         <file.encoding>UTF-8</file.encoding>
         <maven.version>3.8.1</maven.version>
+        <revision>1.0.2-SNAPSHOT</revision>
     </properties>
 
     <dependencyManagement>
