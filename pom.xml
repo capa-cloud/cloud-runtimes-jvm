@@ -103,9 +103,36 @@
                         <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
+                            <goal>aggregate</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <detectOfflineLinks>true</detectOfflineLinks>
+                    <breakiterator>true</breakiterator>
+                    <version>false</version>
+                    <author>false</author>
+                    <show>public</show>
+                    <charset>UTF-8</charset>
+                    <encoding>UTF-8</encoding>
+                    <docencoding>UTF-8</docencoding>
+                    <excludePackageNames>
+                        <!-- No public or protected classes found to document
+                            All of excluded package names will be removed if there is any public or protected classes
+                        -->
+                        group.rxcloud.cloudruntimes.springboot,group.rxcloud.cloudruntimes.springboot.*
+                    </excludePackageNames>
+                    <!-- Exclude all source code related test -->
+                    <sourceFileExcludes>
+                        <exclude>**/example/**/*.java</exclude>
+                        <exclude>**/generated/**/*.java</exclude>
+                        <exclude>**/*Benchmark.java</exclude>
+                        <exclude>**/*Bench.java</exclude>
+                        <exclude>**/*Test.java</exclude>
+                    </sourceFileExcludes>
+                    <doctitle>Cloud Runtimes ${project.version} API</doctitle>
+                    <windowtitle>Cloud Runtimes ${project.version} API</windowtitle>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
