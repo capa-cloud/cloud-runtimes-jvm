@@ -7,11 +7,12 @@
     <parent>
         <groupId>group.rxcloud</groupId>
         <artifactId>cloud-runtimes</artifactId>
-        <version>1.0.1.RELEASE</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>cloud-runtimes-api</artifactId>
     <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
 
     <properties>
         <reactor-core.version>3.4.9</reactor-core.version>
