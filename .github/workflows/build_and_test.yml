@@ -41,15 +41,6 @@ jobs:
           cd ${{ github.workspace }}/cloud-runtimes-jvm
           mvn clean
           mvn compile -q
-      - name: "Pack rat file if failure"
-        if: failure()
-        run: 7z a ${{ github.workspace }}/rat.zip *rat.txt -r
-      - name: "Upload rat file if failure"
-        if: failure()
-        uses: actions/upload-artifact@v2
-        with:
-          name: "rat-file"
-          path: ${{ github.workspace }}/rat.zip
       - name: "Pack checkstyle file if failure"
         if: failure()
         run: 7z a ${{ github.workspace }}/checkstyle.zip *checkstyle* -r
@@ -62,7 +53,7 @@ jobs:
 
   unit-test:
     needs: [ build-source ]
-    name: "Unit Test On ${{ matrix.os }} (JDK: ${{ matrix.jdk }})"
+    name: "Unit Test On ${{ matrix.os }} (OpenJDK: ${{ matrix.jdk }})"
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
