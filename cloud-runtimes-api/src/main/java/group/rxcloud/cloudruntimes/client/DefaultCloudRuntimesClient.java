@@ -282,7 +282,17 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
-    default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type) {
+    default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
@@ -297,7 +307,17 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
-    default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type) {
+    default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
