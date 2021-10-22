@@ -25,6 +25,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Configuration Runtimes standard API defined.
@@ -34,12 +35,44 @@ public interface ConfigurationRuntimes {
     /**
      * Gets configuration from configuration store
      *
-     * @param <T>                      The Type of the return.
-     * @param configurationRequestItem Request object.
-     * @param type                     The Type needed as return for the call.
+     * @param <T>       The Type of the return.
+     * @param storeName The name of configuration store.
+     * @param appId     The application id which only used for admin, Ignored and reset for normal client.
+     * @param keys      the keys to get.
+     * @param metadata  The metadata which will be sent to configuration store components.
+     * @param type      The Type needed as return for the call.
      * @return A Mono Plan of response with type T.
      */
-    <T> Mono<List<ConfigurationItem<T>>> getConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type);
+    <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, TypeRef<T> type);
+
+    /**
+     * Gets configuration from configuration store
+     *
+     * @param <T>       The Type of the return.
+     * @param storeName The name of configuration store.
+     * @param appId     The application id which only used for admin, Ignored and reset for normal client.
+     * @param keys      the keys to get.
+     * @param metadata  The metadata which will be sent to configuration store components.
+     * @param group     The group of keys.
+     * @param type      The Type needed as return for the call.
+     * @return A Mono Plan of response with type T.
+     */
+    <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, TypeRef<T> type);
+
+    /**
+     * Gets configuration from configuration store
+     *
+     * @param <T>       The Type of the return.
+     * @param storeName The name of configuration store.
+     * @param appId     The application id which only used for admin, Ignored and reset for normal client.
+     * @param keys      the keys to get.
+     * @param metadata  The metadata which will be sent to configuration store components.
+     * @param group     The group of keys.
+     * @param type      The Type needed as return for the call.
+     * @param label     The label for keys.
+     * @return A Mono Plan of response with type T.
+     */
+    <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type);
 
     /**
      * Saves configuration into configuration store.
@@ -60,10 +93,42 @@ public interface ConfigurationRuntimes {
     /**
      * Gets configuration from configuration store and subscribe the updates.
      *
-     * @param <T>                      The Type of the return.
-     * @param configurationRequestItem Request object.
-     * @param type                     The Type needed as return for the call.
+     * @param <T>       The Type of the return.
+     * @param storeName The name of configuration store.
+     * @param appId     The application id which only used for admin, Ignored and reset for normal client.
+     * @param keys      the keys to get and subscribe the updates.
+     * @param metadata  The metadata which will be sent to configuration store components.
+     * @param type      The Type needed as return for the call.
      * @return A Flux Plan of response with type T. Subscribe update listener.
      */
-    <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type);
+    <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, TypeRef<T> type);
+
+    /**
+     * Gets configuration from configuration store and subscribe the updates.
+     *
+     * @param <T>       The Type of the return.
+     * @param storeName The name of configuration store.
+     * @param appId     The application id which only used for admin, Ignored and reset for normal client.
+     * @param keys      the keys to get and subscribe the updates.
+     * @param metadata  The metadata which will be sent to configuration store components.
+     * @param group     The group of keys.
+     * @param type      The Type needed as return for the call.
+     * @return A Flux Plan of response with type T. Subscribe update listener.
+     */
+    <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, TypeRef<T> type);
+
+    /**
+     * Gets configuration from configuration store and subscribe the updates.
+     *
+     * @param <T>       The Type of the return.
+     * @param storeName The name of configuration store.
+     * @param appId     The application id which only used for admin, Ignored and reset for normal client.
+     * @param keys      the keys to get and subscribe the updates.
+     * @param metadata  The metadata which will be sent to configuration store components.
+     * @param group     The group of keys.
+     * @param label     The label for keys.
+     * @param type      The Type needed as return for the call.
+     * @return A Flux Plan of response with type T. Subscribe update listener.
+     */
+    <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type);
 }
