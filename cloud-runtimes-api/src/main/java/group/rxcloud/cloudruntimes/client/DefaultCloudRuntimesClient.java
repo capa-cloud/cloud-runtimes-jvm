@@ -297,6 +297,11 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
+    default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
     default Mono<Void> saveConfiguration(SaveConfigurationRequest saveConfigurationRequest) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
@@ -318,6 +323,11 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
 
     @Override
     default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 

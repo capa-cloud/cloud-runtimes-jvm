@@ -23,7 +23,7 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.3.RELEASE</version>
+    <version>1.0.4.RELEASE</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
@@ -40,6 +40,14 @@
         <developer>
             <name>kevinten10</name>
             <email>596823919@qq.com</email>
+        </developer>
+        <developer>
+            <name>pinxiong</name>
+            <email>pinxiong.cn@gmail.com</email>
+        </developer>
+        <developer>
+            <name>recklessctrip</name>
+            <email>reckless0511@gmail.com</email>
         </developer>
     </developers>
 
@@ -89,11 +97,13 @@
                 <artifactId>cloud-runtimes-springboot</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+                <optional>true</optional>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -304,7 +314,7 @@
                         <format>html</format>
                         <format>xml</format>
                     </formats>
-                    <check />
+                    <check/>
                 </configuration>
             </plugin>
             <plugin>

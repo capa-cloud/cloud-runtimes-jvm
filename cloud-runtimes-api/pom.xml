@@ -23,7 +23,7 @@
     <parent>
         <groupId>group.rxcloud</groupId>
         <artifactId>cloud-runtimes</artifactId>
-        <version>1.0.3.RELEASE</version>
+        <version>1.0.4.RELEASE</version>
     </parent>
 
     <artifactId>cloud-runtimes-api</artifactId>
@@ -40,7 +40,9 @@
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-core</artifactId>
             <version>${reactor-core.version}</version>
+            <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -84,4 +86,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

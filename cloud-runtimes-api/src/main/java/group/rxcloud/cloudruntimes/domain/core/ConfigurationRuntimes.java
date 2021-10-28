@@ -75,6 +75,16 @@ public interface ConfigurationRuntimes {
     <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type);
 
     /**
+     * Gets configuration from configuration store
+     *
+     * @param <T>                      The Type of the return.
+     * @param configurationRequestItem Request object.
+     * @param type                     The Type needed as return for the call.
+     * @return A Mono Plan of response with type T.
+     */
+    <T> Mono<List<ConfigurationItem<T>>> getConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type);
+
+    /**
      * Saves configuration into configuration store.
      *
      * @param saveConfigurationRequest Request object.
@@ -131,4 +141,14 @@ public interface ConfigurationRuntimes {
      * @return A Flux Plan of response with type T. Subscribe update listener.
      */
     <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type);
+
+    /**
+     * Gets configuration from configuration store and subscribe the updates.
+     *
+     * @param <T>                      The Type of the return.
+     * @param configurationRequestItem Request object.
+     * @param type                     The Type needed as return for the call.
+     * @return A Flux Plan of response with type T. Subscribe update listener.
+     */
+    <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type);
 }
