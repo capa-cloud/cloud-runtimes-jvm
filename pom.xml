@@ -23,7 +23,7 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>${revision}</version>
+    <version>1.0.3.RELEASE</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
@@ -62,7 +62,6 @@
 
     <modules>
         <module>cloud-runtimes-api</module>
-        <module>cloud-runtimes-springboot</module>
     </modules>
 
     <properties>
@@ -76,7 +75,6 @@
         <maven.surefire.version>3.0.0-M1</maven.surefire.version>
         <maven.jacoco.version>0.8.6</maven.jacoco.version>
         <junit.version>5.3.1</junit.version>
-        <revision>1.0.2.RELEASE</revision>
     </properties>
 
     <dependencyManagement>

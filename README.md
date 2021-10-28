@@ -24,7 +24,6 @@ Standard API for [dapr](https://docs.dapr.io/concepts/building-blocks-concept/)
 For a Maven project, add the following to your `pom.xml` file:
 
 ```xml
-
 <project>
     ...
     <dependencies>
@@ -33,7 +32,7 @@ For a Maven project, add the following to your `pom.xml` file:
         <dependency>
             <groupId>group.rxcloud</groupId>
             <artifactId>cloud-runtimes-api</artifactId>
-            <version>1.0.1.RELEASE</version>
+            <version>1.0.3.RELEASE</version>
         </dependency>
         ...
     </dependencies>
@@ -43,10 +42,10 @@ For a Maven project, add the following to your `pom.xml` file:
 
 For a Gradle project, add the following to your `build.gradle` file:
 
-```
+```groovy
 dependencies {
 ...
    // https://mvnrepository.com/artifact/group.rxcloud/cloud-runtimes-api
-   implementation group: 'group.rxcloud', name: 'cloud-runtimes-api', version: '1.0.1.RELEASE'
+   implementation group: 'group.rxcloud', name: 'cloud-runtimes-api', version: '1.0.3.RELEASE'
 }
 ```
