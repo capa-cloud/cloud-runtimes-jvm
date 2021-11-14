@@ -32,9 +32,13 @@ public interface PubSubRuntimes {
      * @param pubsubName the pubsub name we will publish the event to
      * @param topicName  the topicName where the event will be published.
      * @param data       the event's data to be published, use byte[] for skipping serialization.
-     * @return a Mono plan of type Void.
+     * @return a Mono plan of type String.
+     * <pre>
+     * Please note that this is different from the standard definition.
+     * Return {@code String} refer to https://github.com/reactivegroup/cloud-runtimes-jvm/issues/1
+     * </pre>
      */
-    Mono<Void> publishEvent(String pubsubName, String topicName, Object data);
+    Mono<String> publishEvent(String pubsubName, String topicName, Object data);
 
     /**
      * Publish an event.
@@ -43,15 +47,23 @@ public interface PubSubRuntimes {
      * @param topicName  the topicName where the event will be published.
      * @param data       the event's data to be published, use byte[] for skipping serialization.
      * @param metadata   The metadata for the published event.
-     * @return a Mono plan of type Void.
+     * @return a Mono plan of type String.
+     * <pre>
+     * Please note that this is different from the standard definition.
+     * Return {@code String} refer to https://github.com/reactivegroup/cloud-runtimes-jvm/issues/1
+     * </pre>
      */
-    Mono<Void> publishEvent(String pubsubName, String topicName, Object data, Map<String, String> metadata);
+    Mono<String> publishEvent(String pubsubName, String topicName, Object data, Map<String, String> metadata);
 
     /**
      * Publish an event.
      *
      * @param request the request for the publish event.
-     * @return a Mono plan of a CloudRuntimes's void response.
+     * @return a Mono plan of a CloudRuntimes's String response.
+     * <pre>
+     * Please note that this is different from the standard definition.
+     * Return {@code String} refer to https://github.com/reactivegroup/cloud-runtimes-jvm/issues/1
+     * </pre>
      */
-    Mono<Void> publishEvent(PublishEventRequest request);
+    Mono<String> publishEvent(PublishEventRequest request);
 }
