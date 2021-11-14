@@ -14,15 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes;
+package group.rxcloud.cloudruntimes.domain.enhanced.database;
 
-import group.rxcloud.cloudruntimes.domain.enhanced.DatabaseRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.MetricsRuntimes;
+public class UpdateResponse {
 
-/**
- * Enhanced Cloud Runtimes standard API defined.
- */
-public interface EnhancedCloudRuntimes extends
-        MetricsRuntimes,
-        DatabaseRuntimes {
+    /**
+     * the size of rows are affected.
+     */
+    private int count;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 }

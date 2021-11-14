@@ -14,15 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes;
+package group.rxcloud.cloudruntimes.domain.enhanced.database;
 
-import group.rxcloud.cloudruntimes.domain.enhanced.DatabaseRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.MetricsRuntimes;
+public class GetConnectionResponse {
 
-/**
- * Enhanced Cloud Runtimes standard API defined.
- */
-public interface EnhancedCloudRuntimes extends
-        MetricsRuntimes,
-        DatabaseRuntimes {
+    /**
+     * default : url
+     */
+    private String key;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

@@ -14,15 +14,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes;
+package group.rxcloud.cloudruntimes.domain.enhanced.database;
 
-import group.rxcloud.cloudruntimes.domain.enhanced.DatabaseRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.MetricsRuntimes;
+import java.util.Map;
 
-/**
- * Enhanced Cloud Runtimes standard API defined.
- */
-public interface EnhancedCloudRuntimes extends
-        MetricsRuntimes,
-        DatabaseRuntimes {
+public class CreateTableRequest {
+
+    private String sql;
+    private String connectionKey;
+    private Map<String, String> metadata;
+
+    public String getSql() {
+        return sql;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
+    public String getConnectionKey() {
+        return connectionKey;
+    }
+
+    public void setConnectionKey(String connectionKey) {
+        this.connectionKey = connectionKey;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+    }
 }
