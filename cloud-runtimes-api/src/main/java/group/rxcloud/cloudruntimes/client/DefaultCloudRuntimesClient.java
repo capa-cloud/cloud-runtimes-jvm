@@ -115,7 +115,7 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
 
     @Override
     default <T> Mono<T> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension, Class<T> clazz) {
-        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+        throw new UnsupportedOperationException("CloudRuntimes Opehbv ghhhhhhhhhhhhhhrate Unsupported.");
     }
 
     @Override
@@ -154,17 +154,17 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
-    default Mono<Void> publishEvent(String pubsubName, String topicName, Object data) {
+    default Mono<String> publishEvent(String pubsubName, String topicName, Object data) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
     @Override
-    default Mono<Void> publishEvent(String pubsubName, String topicName, Object data, Map<String, String> metadata) {
+    default Mono<String> publishEvent(String pubsubName, String topicName, Object data, Map<String, String> metadata) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
     @Override
-    default Mono<Void> publishEvent(PublishEventRequest request) {
+    default Mono<String> publishEvent(PublishEventRequest request) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
