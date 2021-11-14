@@ -1,3 +1,19 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package group.rxcloud.cloudruntimes.client;
 
 import group.rxcloud.cloudruntimes.domain.core.binding.InvokeBindingRequest;
@@ -12,6 +28,14 @@ import group.rxcloud.cloudruntimes.domain.core.secrets.GetBulkSecretRequest;
 import group.rxcloud.cloudruntimes.domain.core.secrets.GetSecretRequest;
 import group.rxcloud.cloudruntimes.domain.core.state.*;
 import group.rxcloud.cloudruntimes.domain.enhanced.database.*;
+import group.rxcloud.cloudruntimes.domain.core.state.State;
+import group.rxcloud.cloudruntimes.domain.core.state.DeleteStateRequest;
+import group.rxcloud.cloudruntimes.domain.core.state.StateOptions;
+import group.rxcloud.cloudruntimes.domain.core.state.GetBulkStateRequest;
+import group.rxcloud.cloudruntimes.domain.core.state.TransactionalStateOperation;
+import group.rxcloud.cloudruntimes.domain.core.state.ExecuteStateTransactionRequest;
+import group.rxcloud.cloudruntimes.domain.core.state.SaveStateRequest;
+import group.rxcloud.cloudruntimes.domain.core.state.GetStateRequest;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -260,6 +284,21 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
+    default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
     default <T> Mono<List<ConfigurationItem<T>>> getConfiguration(ConfigurationRequestItem configurationRequestItem, TypeRef<T> type) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
@@ -271,6 +310,21 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
 
     @Override
     default Mono<Void> deleteConfiguration(ConfigurationRequestItem configurationRequestItem) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, TypeRef<T> type) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default <T> Flux<SubConfigurationResp<T>> subscribeConfiguration(String storeName, String appId, List<String> keys, Map<String, String> metadata, String group, String label, TypeRef<T> type) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
