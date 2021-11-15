@@ -47,6 +47,9 @@ import group.rxcloud.cloudruntimes.domain.enhanced.database.QueryResponse;
 import group.rxcloud.cloudruntimes.domain.enhanced.database.UpdateRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.database.UpdateResponse;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
+import io.opentelemetry.api.metrics.Meter;
+import io.opentelemetry.api.trace.Tracer;
+import io.opentelemetry.context.propagation.ContextPropagators;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -115,7 +118,7 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
 
     @Override
     default <T> Mono<T> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension, Class<T> clazz) {
-        throw new UnsupportedOperationException("CloudRuntimes Opehbv ghhhhhhhhhhhhhhrate Unsupported.");
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
     @Override
@@ -410,6 +413,41 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
 
     @Override
     default Mono<Void> RollbackTransaction() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Tracer> buildTracer(String tracerName) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Tracer> buildTracer(String tracerName, String version) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Tracer> buildTracer(String tracerName, String version, String schemaUrl) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<ContextPropagators> getContextPropagators() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Meter> buildMeter(String meterName) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Meter> buildMeter(String meterName, String version) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Meter> buildMeter(String meterName, String version, String schemaUrl) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
