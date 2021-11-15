@@ -36,22 +36,22 @@ public interface TelemetryRuntimes {
     /**
      * Build a tracer with specific tracer name, version.
      *
-     * @see io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String)
      * @param tracerName tracer name.
-     * @param version version.
+     * @param version    version.
      * @return tracer.
+     * @see io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String)
      */
     Mono<Tracer> buildTracer(String tracerName, String version);
 
     /**
      * Build a tracer with specific tracer name, version and schemaUrl.
      *
+     * @param tracerName tracer name.
+     * @param version    version.
+     * @param schemaUrl  schemaUrl.
+     * @return tracer.
      * @see io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String)
      * @see io.opentelemetry.api.trace.TracerBuilder#setSchemaUrl(String) (String)
-     * @param tracerName tracer name.
-     * @param version version.
-     * @param schemaUrl schemaUrl.
-     * @return tracer.
      */
     Mono<Tracer> buildTracer(String tracerName, String version, String schemaUrl);
 
