@@ -23,7 +23,7 @@
     <parent>
         <groupId>group.rxcloud</groupId>
         <artifactId>cloud-runtimes</artifactId>
-        <version>1.0.7.RELEASE</version>
+        <version>1.0.8.RELEASE</version>
     </parent>
 
     <artifactId>cloud-runtimes-api</artifactId>
@@ -43,12 +43,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-
         <!-- open-telemetry-api -->
         <dependency>
             <groupId>io.opentelemetry</groupId>
@@ -63,6 +57,11 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
