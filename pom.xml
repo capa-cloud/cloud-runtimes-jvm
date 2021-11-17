@@ -23,7 +23,7 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.7.RELEASE</version>
+    <version>1.0.8.RELEASE</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
@@ -94,19 +94,6 @@
                 <artifactId>cloud-runtimes-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>group.rxcloud</groupId>
-                <artifactId>cloud-runtimes-springboot</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-                <optional>true</optional>
-            </dependency>
 
             <!-- open telemetry -->
             <dependency>
@@ -117,6 +104,13 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+                <optional>true</optional>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
