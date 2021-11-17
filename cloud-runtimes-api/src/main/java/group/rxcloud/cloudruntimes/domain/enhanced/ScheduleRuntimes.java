@@ -19,7 +19,6 @@ package group.rxcloud.cloudruntimes.domain.enhanced;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
-import java.util.function.Consumer;
 
 /**
  * Schedule Bindings Runtimes standard API defined.
@@ -28,11 +27,11 @@ public interface ScheduleRuntimes {
 
     /**
      * Invokes a Schedule Binding operation.
+     *
+     * @param appId    the app id
+     * @param jobName  the job name
+     * @param metadata the metadata
+     * @return the mono
      */
     Mono<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata);
-
-    /**
-     * Invokes a Schedule Binding operation.
-     */
-    void invokeSchedule(String appId, String jobName, Consumer<Object> callbackFunc, Map<String, String> metadata);
 }
