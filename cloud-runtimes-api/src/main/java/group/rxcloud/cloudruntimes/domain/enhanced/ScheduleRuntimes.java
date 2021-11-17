@@ -14,17 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes;
+package group.rxcloud.cloudruntimes.domain.enhanced;
 
-import group.rxcloud.cloudruntimes.domain.enhanced.DatabaseRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.MetricsRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.ScheduleRuntimes;
+import reactor.core.publisher.Mono;
+
+import java.util.Map;
 
 /**
- * Enhanced Cloud Runtimes standard API defined.
+ * Schedule Bindings Runtimes standard API defined.
  */
-public interface EnhancedCloudRuntimes extends
-        MetricsRuntimes,
-        DatabaseRuntimes,
-        ScheduleRuntimes {
+public interface ScheduleRuntimes {
+
+    /**
+     * Invokes a Schedule Binding operation.
+     *
+     * @param appId    the app id
+     * @param jobName  the job name
+     * @param metadata the metadata
+     * @return the mono
+     */
+    Mono<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata);
 }
