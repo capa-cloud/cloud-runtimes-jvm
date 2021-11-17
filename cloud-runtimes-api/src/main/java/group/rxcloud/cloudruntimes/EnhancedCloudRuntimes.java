@@ -16,15 +16,15 @@
  */
 package group.rxcloud.cloudruntimes;
 
+import group.rxcloud.cloudruntimes.domain.enhanced.TelemetryRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.DatabaseRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.MetricsRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.ScheduleRuntimes;
 
 /**
  * Enhanced Cloud Runtimes standard API defined.
  */
 public interface EnhancedCloudRuntimes extends
-        MetricsRuntimes,
+        TelemetryRuntimes,
         DatabaseRuntimes,
         ScheduleRuntimes {
 }
