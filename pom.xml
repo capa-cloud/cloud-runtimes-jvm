@@ -23,7 +23,7 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.8.RELEASE</version>
+    <version>1.0.9.RELEASE</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
@@ -46,7 +46,7 @@
             <email>pinxiong.cn@gmail.com</email>
         </developer>
         <developer>
-            <name>recklessctrip</name>
+            <name>reckless11</name>
             <email>reckless0511@gmail.com</email>
         </developer>
     </developers>
@@ -76,15 +76,16 @@
         <java.version>8</java.version>
         <file.encoding>UTF-8</file.encoding>
         <maven.version>3.8.1</maven.version>
+        <open.telemetry.version>1.9.0</open.telemetry.version>
+        <open.telemetry.version.alpha>1.9.0-alpha</open.telemetry.version.alpha>
+        <junit.version>5.3.1</junit.version>
+
         <checkstyle.version>3.1.2</checkstyle.version>
         <checkstyle.skip>false</checkstyle.skip>
         <apache.rat.version>0.13</apache.rat.version>
         <cobertura.maven.version>2.7</cobertura.maven.version>
         <maven.surefire.version>3.0.0-M1</maven.surefire.version>
         <maven.jacoco.version>0.8.6</maven.jacoco.version>
-        <junit.version>5.3.1</junit.version>
-        <open.telemetry.version>1.9.0</open.telemetry.version>
-        <open.telemetry.version.alpha>1.9.0-alpha</open.telemetry.version.alpha>
     </properties>
 
     <dependencyManagement>

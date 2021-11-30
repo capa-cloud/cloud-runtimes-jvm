@@ -20,10 +20,17 @@ import group.rxcloud.cloudruntimes.CoreCloudRuntimes;
 import group.rxcloud.cloudruntimes.EnhancedCloudRuntimes;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 /**
  * Cloud Runtimes JVM Client.
  */
 public interface CloudRuntimesClient extends AutoCloseable, CoreCloudRuntimes, EnhancedCloudRuntimes {
+
+    /**
+     * Registry Component names.
+     */
+    List<String> registryNames();
 
     /**
      * Waits for the sidecar, giving up after timeout.

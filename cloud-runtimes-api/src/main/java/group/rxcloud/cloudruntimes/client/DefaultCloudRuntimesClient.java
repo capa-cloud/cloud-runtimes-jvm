@@ -462,5 +462,8 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
+    List<String> registryNames();
+
+    @Override
     void close();
 }

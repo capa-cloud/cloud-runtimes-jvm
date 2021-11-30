@@ -31,10 +31,12 @@ import group.rxcloud.cloudruntimes.domain.enhanced.database.UpdateResponse;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Mono;
 
+/**
+ * TODO: 2021/10/12 API
+ * <p>
+ * see https://github.com/dapr/dapr/issues/3354
+ */
 public interface DatabaseRuntimes {
-
-    // TODO: 2021/10/12 API
-    // see https://github.com/dapr/dapr/issues/3354
 
     // -- Database Base Operation API
 
@@ -91,7 +93,6 @@ public interface DatabaseRuntimes {
      */
     Mono<UpdateResponse> update(String dbName, String tableName, Object data);
 
-    // TODO: 2021/10/12 TODO
     // -- Database Transaction Operation API
 
     Mono<Void> BeginTransaction();
