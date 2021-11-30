@@ -23,7 +23,7 @@
     <parent>
         <groupId>group.rxcloud</groupId>
         <artifactId>cloud-runtimes</artifactId>
-        <version>1.0.8.RELEASE</version>
+        <version>1.0.9.RELEASE</version>
     </parent>
 
     <artifactId>cloud-runtimes-api</artifactId>
@@ -31,7 +31,7 @@
     <name>${project.artifactId}</name>
 
     <properties>
-        <reactor-core.version>3.4.9</reactor-core.version>
+        <reactor-core.version>3.3.22.RELEASE</reactor-core.version>
     </properties>
 
     <dependencies>

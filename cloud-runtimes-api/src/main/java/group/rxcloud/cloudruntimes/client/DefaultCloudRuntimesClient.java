@@ -102,7 +102,7 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
-    default <T> Mono<T> invokeMethod(String appId, String methodName, Object data, HttpExtension httpExtension, Map<String, String> metadata, TypeRef<T> type) {
+    default <T> Mono<T> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension, Map<String, String> metadata, TypeRef<T> type) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
@@ -460,6 +460,9 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     default Mono<Void> shutdown() {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
+
+    @Override
+    List<String> registryNames();
 
     @Override
     void close();

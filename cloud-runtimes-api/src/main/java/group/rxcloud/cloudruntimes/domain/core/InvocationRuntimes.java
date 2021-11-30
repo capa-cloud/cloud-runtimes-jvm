@@ -33,7 +33,7 @@ public interface InvocationRuntimes {
      *
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
-     * @param data          The data to be sent to invoke the service, use byte[] to skip serialization.
+     * @param request       The request to be sent to invoke the service, use byte[] to skip serialization.
      * @param httpExtension Additional fields that are needed if the receiving app is listening on
      *                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param metadata      Metadata (in GRPC) or headers (in HTTP) to be sent in data.
@@ -41,7 +41,7 @@ public interface InvocationRuntimes {
      * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @return A Mono Plan of type T.
      */
-    <T> Mono<T> invokeMethod(String appId, String methodName, Object data, HttpExtension httpExtension,
+    <T> Mono<T> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension,
                              Map<String, String> metadata, TypeRef<T> type);
 
     /**
