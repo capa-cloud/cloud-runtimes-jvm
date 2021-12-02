@@ -452,7 +452,7 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
-    default Mono<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata) {
+    default Flux<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 

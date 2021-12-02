@@ -68,7 +68,7 @@ public class ConfigurationRequestItemBuilder {
      */
     public ConfigurationRequestItem build() {
         ConfigurationRequestItem request = new ConfigurationRequestItem();
-        request.setStoreName(this.appId);
+        request.setStoreName(this.storeName);
         request.setAppId(this.appId);
         request.setGroup(this.group);
         request.setLabel(this.label);

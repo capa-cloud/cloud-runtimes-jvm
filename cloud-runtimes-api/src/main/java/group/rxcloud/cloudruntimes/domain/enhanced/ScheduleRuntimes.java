@@ -16,7 +16,7 @@
  */
 package group.rxcloud.cloudruntimes.domain.enhanced;
 
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
 
 import java.util.Map;
 
@@ -31,7 +31,7 @@ public interface ScheduleRuntimes {
      * @param appId    the app id
      * @param jobName  the job name
      * @param metadata the metadata
-     * @return the mono
+     * @return the flux stream
      */
-    Mono<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata);
+    Flux<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata);
 }
