@@ -73,4 +73,15 @@ public class DeleteStateRequest {
         this.metadata = metadata == null ? null : Collections.unmodifiableMap(metadata);
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "DeleteStateRequest{" +
+                "stateStoreName='" + stateStoreName + '\'' +
+                ", key='" + key + '\'' +
+                ", metadata=" + metadata +
+                ", etag='" + etag + '\'' +
+                ", stateOptions=" + stateOptions +
+                '}';
+    }
 }

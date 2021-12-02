@@ -30,7 +30,7 @@ public class ExecuteStateTransactionRequest {
     /**
      * Transactional operations list.
      */
-    private List<group.rxcloud.cloudruntimes.domain.core.state.TransactionalStateOperation<?>> operations;
+    private List<TransactionalStateOperation<?>> operations;
 
     /**
      * Metadata used for transactional operations.
@@ -61,5 +61,14 @@ public class ExecuteStateTransactionRequest {
 
     public Map<String, String> getMetadata() {
         return metadata;
+    }
+
+    @Override
+    public String toString() {
+        return "ExecuteStateTransactionRequest{" +
+                "stateStoreName='" + stateStoreName + '\'' +
+                ", operations=" + operations +
+                ", metadata=" + metadata +
+                '}';
     }
 }

@@ -37,4 +37,12 @@ public class InsertResponse {
     public void setInsertResult(String insertResult) {
         this.insertResult = insertResult;
     }
+
+    @Override
+    public String toString() {
+        return "InsertResponse{" +
+                "size=" + size +
+                ", insertResult='" + insertResult + '\'' +
+                '}';
+    }
 }

@@ -97,4 +97,16 @@ public class ConfigurationRequestItem {
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
+
+    @Override
+    public String toString() {
+        return "ConfigurationRequestItem{" +
+                "storeName='" + storeName + '\'' +
+                ", appId='" + appId + '\'' +
+                ", group='" + group + '\'' +
+                ", label='" + label + '\'' +
+                ", keys=" + keys +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

@@ -68,4 +68,15 @@ public class GetConnectionPoolOption {
     public void setMaxIdleTime(long maxIdleTime) {
         this.maxIdleTime = maxIdleTime;
     }
+
+    @Override
+    public String toString() {
+        return "GetConnectionPoolOption{" +
+                "pooled=" + pooled +
+                ", maxIdleConns=" + maxIdleConns +
+                ", maxOpenConns=" + maxOpenConns +
+                ", maxLifeTime=" + maxLifeTime +
+                ", maxIdleTime=" + maxIdleTime +
+                '}';
+    }
 }

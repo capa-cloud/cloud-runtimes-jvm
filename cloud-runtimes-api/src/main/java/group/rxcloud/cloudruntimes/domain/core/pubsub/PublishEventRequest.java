@@ -77,4 +77,15 @@ public class PublishEventRequest {
         this.metadata = metadata == null ? null : Collections.unmodifiableMap(metadata);
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "PublishEventRequest{" +
+                "pubsubName='" + pubsubName + '\'' +
+                ", topic='" + topic + '\'' +
+                ", data=" + data +
+                ", contentType='" + contentType + '\'' +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

@@ -51,4 +51,13 @@ public class GetSecretRequest {
         this.metadata = metadata == null ? null : Collections.unmodifiableMap(metadata);
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "GetSecretRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", key='" + key + '\'' +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

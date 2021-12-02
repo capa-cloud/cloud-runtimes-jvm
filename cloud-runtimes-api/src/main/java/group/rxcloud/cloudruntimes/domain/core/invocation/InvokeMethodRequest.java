@@ -29,7 +29,7 @@ public class InvokeMethodRequest {
 
     private Object body;
 
-    private group.rxcloud.cloudruntimes.domain.core.invocation.HttpExtension httpExtension;
+    private HttpExtension httpExtension;
 
     private String contentType;
 
@@ -57,7 +57,7 @@ public class InvokeMethodRequest {
         return this;
     }
 
-    public group.rxcloud.cloudruntimes.domain.core.invocation.HttpExtension getHttpExtension() {
+    public HttpExtension getHttpExtension() {
         return httpExtension;
     }
 

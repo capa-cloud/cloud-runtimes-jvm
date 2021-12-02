@@ -47,4 +47,13 @@ public class DeleteTableRequest {
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
+
+    @Override
+    public String toString() {
+        return "DeleteTableRequest{" +
+                "sql='" + sql + '\'' +
+                ", connectionKey='" + connectionKey + '\'' +
+                ", metadata=" + metadata +
+                '}';
+    }
 }
