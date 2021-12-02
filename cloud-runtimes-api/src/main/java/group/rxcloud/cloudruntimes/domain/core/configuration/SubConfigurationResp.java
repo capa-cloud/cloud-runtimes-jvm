@@ -59,4 +59,13 @@ public class SubConfigurationResp<T> {
     public void setItems(List<ConfigurationItem<T>> items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "SubConfigurationResp{" +
+                "storeName='" + storeName + '\'' +
+                ", appId='" + appId + '\'' +
+                ", items=" + items +
+                '}';
+    }
 }

@@ -14,35 +14,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.schedule;
 
-public class InsertResponse {
+public final class Metadata {
 
-    private int size;
+    public static final String MODE = "mode";
 
-    private String insertResult;
+    public enum Mode {
 
-    public int getSize() {
-        return size;
+        /**
+         * mode
+         */
+        BROADCAST("broadcast"),
+        UNICAST("unicast");
+
+        private final String mode;
+
+        Mode(String mode) {
+            this.mode = mode;
+        }
+
+        public String getMode() {
+            return mode;
+        }
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String getInsertResult() {
-        return insertResult;
-    }
-
-    public void setInsertResult(String insertResult) {
-        this.insertResult = insertResult;
-    }
-
-    @Override
-    public String toString() {
-        return "InsertResponse{" +
-                "size=" + size +
-                ", insertResult='" + insertResult + '\'' +
-                '}';
+    private Metadata() {
     }
 }

@@ -14,35 +14,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.file;
 
-public class InsertResponse {
+import java.util.List;
 
-    private int size;
+public class ListFileResp {
 
-    private String insertResult;
+    private List<FileInfo> files;
+    private String marker;
+    private boolean isTruncated;
 
-    public int getSize() {
-        return size;
+    public List<FileInfo> getFiles() {
+        return files;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setFiles(List<FileInfo> files) {
+        this.files = files;
     }
 
-    public String getInsertResult() {
-        return insertResult;
+    public String getMarker() {
+        return marker;
     }
 
-    public void setInsertResult(String insertResult) {
-        this.insertResult = insertResult;
+    public void setMarker(String marker) {
+        this.marker = marker;
+    }
+
+    public boolean isTruncated() {
+        return isTruncated;
+    }
+
+    public void setTruncated(boolean truncated) {
+        isTruncated = truncated;
     }
 
     @Override
     public String toString() {
-        return "InsertResponse{" +
-                "size=" + size +
-                ", insertResult='" + insertResult + '\'' +
+        return "ListFileResp{" +
+                "files=" + files +
+                ", marker='" + marker + '\'' +
+                ", isTruncated=" + isTruncated +
                 '}';
     }
 }

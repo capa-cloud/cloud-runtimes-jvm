@@ -70,4 +70,15 @@ public class GetConnectionRequest {
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
+
+    @Override
+    public String toString() {
+        return "GetConnectionRequest{" +
+                "url='" + url + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", poolOption=" + poolOption +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

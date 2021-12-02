@@ -27,7 +27,7 @@ public class SaveStateRequest {
 
     private final String storeName;
 
-    private List<group.rxcloud.cloudruntimes.domain.core.state.State<?>> states;
+    private List<State<?>> states;
 
     public SaveStateRequest(String storeName) {
         this.storeName = storeName;
@@ -37,11 +37,11 @@ public class SaveStateRequest {
         return storeName;
     }
 
-    public List<group.rxcloud.cloudruntimes.domain.core.state.State<?>> getStates() {
+    public List<State<?>> getStates() {
         return states;
     }
 
-    public SaveStateRequest setStates(List<group.rxcloud.cloudruntimes.domain.core.state.State<?>> states) {
+    public SaveStateRequest setStates(List<State<?>> states) {
         this.states = states == null ? null : Collections.unmodifiableList(states);
         return this;
     }
@@ -49,5 +49,13 @@ public class SaveStateRequest {
     public SaveStateRequest setStates(State<?>... states) {
         this.states = Collections.unmodifiableList(Arrays.asList(states));
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "SaveStateRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", states=" + states +
+                '}';
     }
 }

@@ -71,4 +71,14 @@ public class SaveConfigurationRequest {
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
+
+    @Override
+    public String toString() {
+        return "SaveConfigurationRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", appId='" + appId + '\'' +
+                ", items=" + items +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

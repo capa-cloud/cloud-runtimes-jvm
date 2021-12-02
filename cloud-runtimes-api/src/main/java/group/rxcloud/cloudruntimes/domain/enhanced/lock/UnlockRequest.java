@@ -14,35 +14,49 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.lock;
 
-public class InsertResponse {
+public class UnlockRequest {
 
-    private int size;
+    private String storeName;
 
-    private String insertResult;
+    /**
+     * resource_id is the lock key.
+     */
+    private String resourceId;
 
-    public int getSize() {
-        return size;
+    private String lockOwner;
+
+    public String getStoreName() {
+        return storeName;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 
-    public String getInsertResult() {
-        return insertResult;
+    public String getResourceId() {
+        return resourceId;
     }
 
-    public void setInsertResult(String insertResult) {
-        this.insertResult = insertResult;
+    public void setResourceId(String resourceId) {
+        this.resourceId = resourceId;
+    }
+
+    public String getLockOwner() {
+        return lockOwner;
+    }
+
+    public void setLockOwner(String lockOwner) {
+        this.lockOwner = lockOwner;
     }
 
     @Override
     public String toString() {
-        return "InsertResponse{" +
-                "size=" + size +
-                ", insertResult='" + insertResult + '\'' +
+        return "UnlockRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", resourceId='" + resourceId + '\'' +
+                ", lockOwner='" + lockOwner + '\'' +
                 '}';
     }
 }

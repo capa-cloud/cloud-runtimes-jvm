@@ -30,7 +30,7 @@ public class GetStateRequest {
 
     private Map<String, String> metadata;
 
-    private group.rxcloud.cloudruntimes.domain.core.state.StateOptions stateOptions;
+    private StateOptions stateOptions;
 
     public GetStateRequest(String storeName, String key) {
         this.storeName = storeName;
@@ -45,7 +45,7 @@ public class GetStateRequest {
         return key;
     }
 
-    public group.rxcloud.cloudruntimes.domain.core.state.StateOptions getStateOptions() {
+    public StateOptions getStateOptions() {
         return stateOptions;
     }
 
@@ -61,5 +61,15 @@ public class GetStateRequest {
     public GetStateRequest setMetadata(Map<String, String> metadata) {
         this.metadata = metadata == null ? null : Collections.unmodifiableMap(metadata);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "GetStateRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", key='" + key + '\'' +
+                ", metadata=" + metadata +
+                ", stateOptions=" + stateOptions +
+                '}';
     }
 }

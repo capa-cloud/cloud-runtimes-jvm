@@ -46,6 +46,16 @@ import group.rxcloud.cloudruntimes.domain.enhanced.database.QueryRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.database.QueryResponse;
 import group.rxcloud.cloudruntimes.domain.enhanced.database.UpdateRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.database.UpdateResponse;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.DelFileRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.GetFileRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.GetFileResponse;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.ListFileRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.ListFileResp;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.PutFileRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockResponse;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockResponse;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import io.opentelemetry.api.metrics.Meter;
 import io.opentelemetry.api.trace.Tracer;
@@ -452,7 +462,37 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
-    default Mono<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata) {
+    default Flux<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<GetFileResponse> getFile(GetFileRequest request) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Void> putFile(Flux<PutFileRequest> requests) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<ListFileResp> listFile(ListFileRequest request) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Void> delFile(DelFileRequest request) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<TryLockResponse> tryLock(TryLockRequest request) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<UnlockResponse> unlock(UnlockRequest request) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 

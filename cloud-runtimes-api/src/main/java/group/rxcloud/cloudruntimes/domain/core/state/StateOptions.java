@@ -100,4 +100,12 @@ public class StateOptions {
             return Concurrency.valueOf(value);
         }
     }
+
+    @Override
+    public String toString() {
+        return "StateOptions{" +
+                "consistency=" + consistency +
+                ", concurrency=" + concurrency +
+                '}';
+    }
 }

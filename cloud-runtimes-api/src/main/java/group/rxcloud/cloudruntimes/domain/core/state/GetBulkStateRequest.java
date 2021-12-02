@@ -69,4 +69,14 @@ public class GetBulkStateRequest {
         this.metadata = metadata == null ? null : Collections.unmodifiableMap(metadata);
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "GetBulkStateRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", keys=" + keys +
+                ", metadata=" + metadata +
+                ", parallelism=" + parallelism +
+                '}';
+    }
 }

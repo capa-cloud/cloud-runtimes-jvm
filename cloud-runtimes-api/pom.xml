@@ -23,16 +23,12 @@
     <parent>
         <groupId>group.rxcloud</groupId>
         <artifactId>cloud-runtimes</artifactId>
-        <version>1.0.9.RELEASE</version>
+        <version>1.0.10.RELEASE</version>
     </parent>
 
     <artifactId>cloud-runtimes-api</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
-
-    <properties>
-        <reactor-core.version>3.3.22.RELEASE</reactor-core.version>
-    </properties>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->

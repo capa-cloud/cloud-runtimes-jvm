@@ -93,4 +93,16 @@ public class ConfigurationItem<T> {
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
+
+    @Override
+    public String toString() {
+        return "ConfigurationItem{" +
+                "key='" + key + '\'' +
+                ", content=" + content +
+                ", group='" + group + '\'' +
+                ", label='" + label + '\'' +
+                ", tags=" + tags +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

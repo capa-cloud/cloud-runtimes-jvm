@@ -50,4 +50,12 @@ public class TransactionalStateRequest<T> {
     public Map<String, String> getMetadata() {
         return metadata;
     }
+
+    @Override
+    public String toString() {
+        return "TransactionalStateRequest{" +
+                "operations=" + operations +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

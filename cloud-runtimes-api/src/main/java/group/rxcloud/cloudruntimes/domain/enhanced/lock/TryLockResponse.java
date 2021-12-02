@@ -14,35 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.lock;
 
-public class InsertResponse {
 
-    private int size;
+public class TryLockResponse {
 
-    private String insertResult;
+    private boolean success;
 
-    public int getSize() {
-        return size;
+    public boolean isSuccess() {
+        return success;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String getInsertResult() {
-        return insertResult;
-    }
-
-    public void setInsertResult(String insertResult) {
-        this.insertResult = insertResult;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     @Override
     public String toString() {
-        return "InsertResponse{" +
-                "size=" + size +
-                ", insertResult='" + insertResult + '\'' +
+        return "TryLockResponse{" +
+                "success=" + success +
                 '}';
     }
 }

@@ -14,35 +14,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.lock;
 
-public class InsertResponse {
+public class UnlockResponse {
 
-    private int size;
+    public enum Status {
 
-    private String insertResult;
+        SUCCESS(0),
+        LOCK_UNEXIST(1),
+        LOCK_BELONG_TO_OTHERS(2),
+        INTERNAL_ERROR(3);
 
-    public int getSize() {
-        return size;
+        private final int i;
+
+        Status(int i) {
+            this.i = i;
+        }
+
+        public int getI() {
+            return i;
+        }
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    private Status status;
+
+    public Status getStatus() {
+        return status;
     }
 
-    public String getInsertResult() {
-        return insertResult;
-    }
-
-    public void setInsertResult(String insertResult) {
-        this.insertResult = insertResult;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
-        return "InsertResponse{" +
-                "size=" + size +
-                ", insertResult='" + insertResult + '\'' +
+        return "UnlockResponse{" +
+                "status=" + status +
                 '}';
     }
 }

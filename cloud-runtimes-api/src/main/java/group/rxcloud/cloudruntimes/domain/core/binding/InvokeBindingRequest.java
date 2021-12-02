@@ -62,4 +62,14 @@ public class InvokeBindingRequest {
         this.metadata = metadata == null ? null : Collections.unmodifiableMap(metadata);
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "InvokeBindingRequest{" +
+                "name='" + name + '\'' +
+                ", operation='" + operation + '\'' +
+                ", data=" + data +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

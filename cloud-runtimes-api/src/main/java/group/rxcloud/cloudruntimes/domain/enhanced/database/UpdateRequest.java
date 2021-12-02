@@ -69,4 +69,14 @@ public class UpdateRequest {
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
+
+    @Override
+    public String toString() {
+        return "UpdateRequest{" +
+                "sql='" + sql + '\'' +
+                ", args=" + args +
+                ", connectionKey='" + connectionKey + '\'' +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

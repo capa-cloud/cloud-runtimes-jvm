@@ -14,35 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.file;
 
-public class InsertResponse {
+public class DelFileRequest {
 
-    private int size;
+    private FileRequest request;
 
-    private String insertResult;
-
-    public int getSize() {
-        return size;
+    public FileRequest getRequest() {
+        return request;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String getInsertResult() {
-        return insertResult;
-    }
-
-    public void setInsertResult(String insertResult) {
-        this.insertResult = insertResult;
+    public void setRequest(FileRequest request) {
+        this.request = request;
     }
 
     @Override
     public String toString() {
-        return "InsertResponse{" +
-                "size=" + size +
-                ", insertResult='" + insertResult + '\'' +
+        return "DelFileRequest{" +
+                "request=" + request +
                 '}';
     }
 }

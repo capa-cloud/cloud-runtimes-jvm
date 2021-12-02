@@ -14,40 +14,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.core.configuration;
+package group.rxcloud.cloudruntimes.domain.enhanced.file;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 
-/**
- * ConfigurationRequestItem used for GET,DEL,SUB request
- */
-public class ConfigurationRequestItem {
+public class PutFileRequest {
 
-    /**
-     * The name of configuration store.
-     */
     private String storeName;
-    /**
-     * The application id which
-     * Only used for admin, Ignored and reset for normal client
-     */
-    private String appId;
-    /**
-     * The group of keys.
-     */
-    private String group;
-    /**
-     * The label for keys.
-     */
-    private String label;
-    /**
-     * The keys to get.
-     */
-    private List<String> keys;
-    /**
-     * The metadata which will be sent to configuration store components.
-     */
+    // The name of the file or object want to put.
+    private String name;
+    // The data will be store.
+    private byte[] data;
+    // The metadata for user extension.
     private Map<String, String> metadata;
 
     public String getStoreName() {
@@ -58,36 +37,20 @@ public class ConfigurationRequestItem {
         this.storeName = storeName;
     }
 
-    public String getAppId() {
-        return appId;
+    public String getName() {
+        return name;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getGroup() {
-        return group;
+    public byte[] getData() {
+        return data;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public List<String> getKeys() {
-        return keys;
-    }
-
-    public void setKeys(List<String> keys) {
-        this.keys = keys;
+    public void setData(byte[] data) {
+        this.data = data;
     }
 
     public Map<String, String> getMetadata() {
@@ -100,12 +63,10 @@ public class ConfigurationRequestItem {
 
     @Override
     public String toString() {
-        return "ConfigurationRequestItem{" +
+        return "PutFileRequest{" +
                 "storeName='" + storeName + '\'' +
-                ", appId='" + appId + '\'' +
-                ", group='" + group + '\'' +
-                ", label='" + label + '\'' +
-                ", keys=" + keys +
+                ", name='" + name + '\'' +
+                ", data=" + Arrays.toString(data) +
                 ", metadata=" + metadata +
                 '}';
     }

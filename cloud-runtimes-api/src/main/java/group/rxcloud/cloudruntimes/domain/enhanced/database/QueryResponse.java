@@ -43,4 +43,12 @@ public class QueryResponse<T> {
     public void setQueryResult(T queryResult) {
         this.queryResult = queryResult;
     }
+
+    @Override
+    public String toString() {
+        return "QueryResponse{" +
+                "size=" + size +
+                ", queryResult=" + queryResult +
+                '}';
+    }
 }

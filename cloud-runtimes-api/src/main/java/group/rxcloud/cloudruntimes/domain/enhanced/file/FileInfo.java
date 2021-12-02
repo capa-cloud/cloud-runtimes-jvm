@@ -14,52 +14,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.file;
 
-import java.util.List;
 import java.util.Map;
 
-public class InsertRequest {
+public class FileInfo {
 
-    private String sql;
-
-    /**
-     * the arguments
-     */
-    private List<String> args;
-
-    /**
-     * the connectionKey is the connection identifier, the default value is the URL of database.
-     */
-    private String connectionKey;
-
-    /**
-     * the metadata, maybe the timeout or other parameters.
-     */
+    // The name of file
+    private String fileName;
+    // The size of file
+    private long size;
+    // The modified time of file
+    private String lastModified;
+    // The metadata for user extension.
     private Map<String, String> metadata;
 
-    public String getSql() {
-        return sql;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setSql(String sql) {
-        this.sql = sql;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-    public List<String> getArgs() {
-        return args;
+    public long getSize() {
+        return size;
     }
 
-    public void setArgs(List<String> args) {
-        this.args = args;
+    public void setSize(long size) {
+        this.size = size;
     }
 
-    public String getConnectionKey() {
-        return connectionKey;
+    public String getLastModified() {
+        return lastModified;
     }
 
-    public void setConnectionKey(String connectionKey) {
-        this.connectionKey = connectionKey;
+    public void setLastModified(String lastModified) {
+        this.lastModified = lastModified;
     }
 
     public Map<String, String> getMetadata() {
@@ -72,10 +63,10 @@ public class InsertRequest {
 
     @Override
     public String toString() {
-        return "InsertRequest{" +
-                "sql='" + sql + '\'' +
-                ", args=" + args +
-                ", connectionKey='" + connectionKey + '\'' +
+        return "FileInfo{" +
+                "fileName='" + fileName + '\'' +
+                ", size=" + size +
+                ", lastModified='" + lastModified + '\'' +
                 ", metadata=" + metadata +
                 '}';
     }

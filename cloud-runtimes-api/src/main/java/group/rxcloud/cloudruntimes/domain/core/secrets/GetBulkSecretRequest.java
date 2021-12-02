@@ -44,4 +44,12 @@ public class GetBulkSecretRequest {
         this.metadata = metadata == null ? null : Collections.unmodifiableMap(metadata);
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "GetBulkSecretRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

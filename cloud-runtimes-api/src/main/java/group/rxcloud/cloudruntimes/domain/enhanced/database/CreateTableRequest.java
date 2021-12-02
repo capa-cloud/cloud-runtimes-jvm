@@ -47,4 +47,13 @@ public class CreateTableRequest {
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
     }
+
+    @Override
+    public String toString() {
+        return "CreateTableRequest{" +
+                "sql='" + sql + '\'' +
+                ", connectionKey='" + connectionKey + '\'' +
+                ", metadata=" + metadata +
+                '}';
+    }
 }

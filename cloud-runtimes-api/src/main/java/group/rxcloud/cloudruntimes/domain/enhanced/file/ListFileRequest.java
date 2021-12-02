@@ -14,35 +14,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.file;
 
-public class InsertResponse {
+public class ListFileRequest {
 
-    private int size;
+    private FileRequest request;
+    private int pageSize;
+    private String marker;
 
-    private String insertResult;
-
-    public int getSize() {
-        return size;
+    public FileRequest getRequest() {
+        return request;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setRequest(FileRequest request) {
+        this.request = request;
     }
 
-    public String getInsertResult() {
-        return insertResult;
+    public int getPageSize() {
+        return pageSize;
     }
 
-    public void setInsertResult(String insertResult) {
-        this.insertResult = insertResult;
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getMarker() {
+        return marker;
+    }
+
+    public void setMarker(String marker) {
+        this.marker = marker;
     }
 
     @Override
     public String toString() {
-        return "InsertResponse{" +
-                "size=" + size +
-                ", insertResult='" + insertResult + '\'' +
+        return "ListFileRequest{" +
+                "request=" + request +
+                ", pageSize=" + pageSize +
+                ", marker='" + marker + '\'' +
                 '}';
     }
 }

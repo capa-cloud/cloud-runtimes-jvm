@@ -14,52 +14,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced.file;
 
-import java.util.List;
 import java.util.Map;
 
-public class InsertRequest {
+public class GetFileRequest {
 
-    private String sql;
-
-    /**
-     * the arguments
-     */
-    private List<String> args;
-
-    /**
-     * the connectionKey is the connection identifier, the default value is the URL of database.
-     */
-    private String connectionKey;
-
-    /**
-     * the metadata, maybe the timeout or other parameters.
-     */
+    private String storeName;
+    // The name of the file or object want to get.
+    private String name;
+    // The metadata for user extension.
     private Map<String, String> metadata;
 
-    public String getSql() {
-        return sql;
+    public String getStoreName() {
+        return storeName;
     }
 
-    public void setSql(String sql) {
-        this.sql = sql;
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 
-    public List<String> getArgs() {
-        return args;
+    public String getName() {
+        return name;
     }
 
-    public void setArgs(List<String> args) {
-        this.args = args;
-    }
-
-    public String getConnectionKey() {
-        return connectionKey;
-    }
-
-    public void setConnectionKey(String connectionKey) {
-        this.connectionKey = connectionKey;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Map<String, String> getMetadata() {
@@ -72,10 +52,9 @@ public class InsertRequest {
 
     @Override
     public String toString() {
-        return "InsertRequest{" +
-                "sql='" + sql + '\'' +
-                ", args=" + args +
-                ", connectionKey='" + connectionKey + '\'' +
+        return "GetFileRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", name='" + name + '\'' +
                 ", metadata=" + metadata +
                 '}';
     }

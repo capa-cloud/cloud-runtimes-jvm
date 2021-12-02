@@ -16,22 +16,34 @@
  */
 package group.rxcloud.cloudruntimes.domain.enhanced;
 
+import group.rxcloud.cloudruntimes.domain.enhanced.file.DelFileRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.GetFileRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.GetFileResponse;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.ListFileRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.ListFileResp;
+import group.rxcloud.cloudruntimes.domain.enhanced.file.PutFileRequest;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-import java.util.Map;
-
-/**
- * Schedule Bindings Runtimes standard API defined.
- */
-public interface ScheduleRuntimes {
+public interface FileRuntimes {
 
     /**
-     * Invokes a Schedule Binding operation.
-     *
-     * @param appId    the app id
-     * @param jobName  the job name
-     * @param metadata the metadata
-     * @return the flux stream
+     * Get file
      */
-    Flux<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata);
+    Mono<GetFileResponse> getFile(GetFileRequest request);
+
+    /**
+     * Put file with stream
+     */
+    Mono<Void> putFile(Flux<PutFileRequest> requests);
+
+    /**
+     * List all files
+     */
+    Mono<ListFileResp> listFile(ListFileRequest request);
+
+    /**
+     * Delete specific file
+     */
+    Mono<Void> delFile(DelFileRequest request);
 }

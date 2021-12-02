@@ -14,35 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.database;
+package group.rxcloud.cloudruntimes.domain.enhanced;
 
-public class InsertResponse {
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockResponse;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockResponse;
+import reactor.core.publisher.Mono;
 
-    private int size;
+public interface LockRuntimes {
 
-    private String insertResult;
+    /**
+     * Distributed Lock API
+     * A non-blocking method trying to get a lock with ttl.
+     */
+    Mono<TryLockResponse> tryLock(TryLockRequest request);
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String getInsertResult() {
-        return insertResult;
-    }
-
-    public void setInsertResult(String insertResult) {
-        this.insertResult = insertResult;
-    }
-
-    @Override
-    public String toString() {
-        return "InsertResponse{" +
-                "size=" + size +
-                ", insertResult='" + insertResult + '\'' +
-                '}';
-    }
+    Mono<UnlockResponse> unlock(UnlockRequest request);
 }
