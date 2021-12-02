@@ -14,31 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.schedule;
+package group.rxcloud.cloudruntimes.domain.enhanced.lock;
 
-public final class Metadata {
 
-    public static final String MODE = "mode";
+public class TryLockResponse {
 
-    public enum Mode {
+    private boolean success;
 
-        /**
-         * mode
-         */
-        BROADCAST("broadcast"),
-        UNICAST("unicast");
-
-        private final String mode;
-
-        Mode(String mode) {
-            this.mode = mode;
-        }
-
-        public String getMode() {
-            return mode;
-        }
+    public boolean isSuccess() {
+        return success;
     }
 
-    private Metadata() {
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    @Override
+    public String toString() {
+        return "TryLockResponse{" +
+                "success=" + success +
+                '}';
     }
 }

@@ -23,7 +23,7 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0-alpha-1</version>
+    <version>1.0.10.RELEASE</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
@@ -76,6 +76,7 @@
         <java.version>8</java.version>
         <file.encoding>UTF-8</file.encoding>
         <maven.version>3.8.1</maven.version>
+        <reactor-core.version>3.3.22.RELEASE</reactor-core.version>
         <open.telemetry.version>1.9.0</open.telemetry.version>
         <open.telemetry.version.alpha>1.9.0-alpha</open.telemetry.version.alpha>
         <junit.version>5.3.1</junit.version>

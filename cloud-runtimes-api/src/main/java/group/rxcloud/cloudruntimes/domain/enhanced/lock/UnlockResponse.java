@@ -14,31 +14,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.schedule;
+package group.rxcloud.cloudruntimes.domain.enhanced.lock;
 
-public final class Metadata {
+public class UnlockResponse {
 
-    public static final String MODE = "mode";
+    public enum Status {
 
-    public enum Mode {
+        SUCCESS(0),
+        LOCK_UNEXIST(1),
+        LOCK_BELONG_TO_OTHERS(2),
+        INTERNAL_ERROR(3);
 
-        /**
-         * mode
-         */
-        BROADCAST("broadcast"),
-        UNICAST("unicast");
+        private final int i;
 
-        private final String mode;
-
-        Mode(String mode) {
-            this.mode = mode;
+        Status(int i) {
+            this.i = i;
         }
 
-        public String getMode() {
-            return mode;
+        public int getI() {
+            return i;
         }
     }
 
-    private Metadata() {
+    private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "UnlockResponse{" +
+                "status=" + status +
+                '}';
     }
 }

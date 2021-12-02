@@ -14,31 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.schedule;
+package group.rxcloud.cloudruntimes.domain.enhanced.file;
 
-public final class Metadata {
+import java.util.Arrays;
 
-    public static final String MODE = "mode";
+public class GetFileResponse {
 
-    public enum Mode {
+    private byte[] data;
 
-        /**
-         * mode
-         */
-        BROADCAST("broadcast"),
-        UNICAST("unicast");
-
-        private final String mode;
-
-        Mode(String mode) {
-            this.mode = mode;
-        }
-
-        public String getMode() {
-            return mode;
-        }
+    public byte[] getData() {
+        return data;
     }
 
-    private Metadata() {
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "GetFileResponse{" +
+                "data=" + Arrays.toString(data) +
+                '}';
     }
 }

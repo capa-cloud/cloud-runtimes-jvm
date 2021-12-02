@@ -14,31 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.schedule;
+package group.rxcloud.cloudruntimes.domain.enhanced;
 
-public final class Metadata {
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockResponse;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockResponse;
+import reactor.core.publisher.Mono;
 
-    public static final String MODE = "mode";
+public interface LockRuntimes {
 
-    public enum Mode {
+    /**
+     * Distributed Lock API
+     * A non-blocking method trying to get a lock with ttl.
+     */
+    Mono<TryLockResponse> tryLock(TryLockRequest request);
 
-        /**
-         * mode
-         */
-        BROADCAST("broadcast"),
-        UNICAST("unicast");
-
-        private final String mode;
-
-        Mode(String mode) {
-            this.mode = mode;
-        }
-
-        public String getMode() {
-            return mode;
-        }
-    }
-
-    private Metadata() {
-    }
+    Mono<UnlockResponse> unlock(UnlockRequest request);
 }

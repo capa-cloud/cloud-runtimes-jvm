@@ -14,31 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.schedule;
+package group.rxcloud.cloudruntimes.domain.enhanced.file;
 
-public final class Metadata {
+public class DelFileRequest {
 
-    public static final String MODE = "mode";
+    private FileRequest request;
 
-    public enum Mode {
-
-        /**
-         * mode
-         */
-        BROADCAST("broadcast"),
-        UNICAST("unicast");
-
-        private final String mode;
-
-        Mode(String mode) {
-            this.mode = mode;
-        }
-
-        public String getMode() {
-            return mode;
-        }
+    public FileRequest getRequest() {
+        return request;
     }
 
-    private Metadata() {
+    public void setRequest(FileRequest request) {
+        this.request = request;
+    }
+
+    @Override
+    public String toString() {
+        return "DelFileRequest{" +
+                "request=" + request +
+                '}';
     }
 }

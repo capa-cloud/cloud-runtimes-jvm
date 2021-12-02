@@ -16,6 +16,8 @@
  */
 package group.rxcloud.cloudruntimes;
 
+import group.rxcloud.cloudruntimes.domain.enhanced.FileRuntimes;
+import group.rxcloud.cloudruntimes.domain.enhanced.LockRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.TelemetryRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.DatabaseRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.ScheduleRuntimes;
@@ -26,5 +28,7 @@ import group.rxcloud.cloudruntimes.domain.enhanced.ScheduleRuntimes;
 public interface EnhancedCloudRuntimes extends
         TelemetryRuntimes,
         DatabaseRuntimes,
-        ScheduleRuntimes {
+        ScheduleRuntimes,
+        FileRuntimes,
+        LockRuntimes {
 }
