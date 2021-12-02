@@ -29,6 +29,8 @@ The Multi-Runtime Standard API for Mecha architecture Projects:
 + State Management (State)
 + Secret Management (Secret)
 + Application Log/Metrics/Traces (Telemetry)
++ File System (File)
++ Distribute Lock (Lock)
 + Database (SQL) -alpha
 + Schedule (Schedule) -alpha
 + ...
