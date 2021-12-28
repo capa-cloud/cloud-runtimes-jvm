@@ -21,7 +21,15 @@ package group.rxcloud.cloudruntimes.domain.core.invocation;
  */
 public final class Metadata {
 
+    /**
+     * HTTP header: content-type
+     */
     public static final String CONTENT_TYPE = "content-type";
+
+    /**
+     * HTTP header: accept
+     */
+    public static final String ACCEPT = "accept";
 
     public static final String TTL_IN_SECONDS = "ttlInSeconds";
 

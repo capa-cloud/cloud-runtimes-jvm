@@ -31,7 +31,7 @@ public interface ScheduleRuntimes {
      * @param appId    the app id
      * @param jobName  the job name
      * @param metadata the metadata
-     * @return the flux stream
+     * @return the job flux stream
      */
     Flux<Object> invokeSchedule(String appId, String jobName, Map<String, String> metadata);
 }

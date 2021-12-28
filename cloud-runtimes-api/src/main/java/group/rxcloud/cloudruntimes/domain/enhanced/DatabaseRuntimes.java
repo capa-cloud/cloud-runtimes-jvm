@@ -32,8 +32,7 @@ import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Mono;
 
 /**
- * TODO: 2021/10/12 API
- * <p>
+ * alpha API.
  * see https://github.com/dapr/dapr/issues/3354
  */
 public interface DatabaseRuntimes {
