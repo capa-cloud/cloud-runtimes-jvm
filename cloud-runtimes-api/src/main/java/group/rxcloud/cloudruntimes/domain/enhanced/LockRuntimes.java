@@ -22,13 +22,18 @@ import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockResponse;
 import reactor.core.publisher.Mono;
 
+/**
+ * Distributed Lock API.
+ */
 public interface LockRuntimes {
 
     /**
-     * Distributed Lock API
      * A non-blocking method trying to get a lock with ttl.
      */
     Mono<TryLockResponse> tryLock(TryLockRequest request);
 
+    /**
+     * Unlock.
+     */
     Mono<UnlockResponse> unlock(UnlockRequest request);
 }
