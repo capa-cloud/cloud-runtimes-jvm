@@ -50,7 +50,7 @@ For a Maven project, add the following to your `pom.xml` file:
         <dependency>
             <groupId>group.rxcloud</groupId>
             <artifactId>cloud-runtimes-api</artifactId>
-            <version>1.11.RELEASE</version>
+            <version>1.12.alpha-1</version>
         </dependency>
         ...
     </dependencies>
@@ -64,6 +64,6 @@ For a Gradle project, add the following to your `build.gradle` file:
 dependencies {
 ...
    // https://mvnrepository.com/artifact/group.rxcloud/cloud-runtimes-api
-   implementation group: 'group.rxcloud', name: 'cloud-runtimes-api', version: '1.11.RELEASE'
+   implementation group: 'group.rxcloud', name: 'cloud-runtimes-api', version: '1.12.alpha-1'
 }
 ```
