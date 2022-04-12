@@ -23,11 +23,11 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>1.11.RELEASE</version>
+    <version>1.12.RELEASE</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
-    <url>https://github.com/reactivegroup</url>
+    <url>https://github.com/capa-cloud</url>
 
     <licenses>
         <license>
@@ -52,9 +52,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:reactivegroup/cloud-runtimes-jvm.git</connection>
-        <developerConnection>scm:git:git@github.com:reactivegroup/cloud-runtimes-jvm.git</developerConnection>
-        <url>git@github.com:reactivegroup/cloud-runtimes-jvm.git</url>
+        <connection>scm:git:git@github.com:capa-cloud/cloud-runtimes-jvm.git</connection>
+        <developerConnection>scm:git:git@github.com:capa-cloud/cloud-runtimes-jvm.git</developerConnection>
+        <url>git@github.com:capa-cloud/cloud-runtimes-jvm.git</url>
     </scm>
 
     <distributionManagement>
@@ -70,12 +70,16 @@
 
     <modules>
         <module>cloud-runtimes-api</module>
+        <module>cloud-runtimes-capa</module>
+        <module>cloud-runtimes-dapr</module>
+        <module>cloud-runtimes-layotto</module>
     </modules>
 
     <properties>
         <java.version>8</java.version>
         <file.encoding>UTF-8</file.encoding>
         <maven.version>3.8.1</maven.version>
+
         <reactor-core.version>3.3.22.RELEASE</reactor-core.version>
         <open.telemetry.version>1.9.0</open.telemetry.version>
         <open.telemetry.version.alpha>1.9.0-alpha</open.telemetry.version.alpha>
@@ -97,13 +101,26 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <!-- open telemetry -->
+            <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>${reactor-core.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <!-- open-telemetry-api -->
             <dependency>
                 <groupId>io.opentelemetry</groupId>
-                <artifactId>opentelemetry-bom</artifactId>
+                <artifactId>opentelemetry-api</artifactId>
                 <version>${open.telemetry.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-api-metrics</artifactId>
+                <version>${open.telemetry.version.alpha}</version>
+                <optional>true</optional>
             </dependency>
 
             <dependency>

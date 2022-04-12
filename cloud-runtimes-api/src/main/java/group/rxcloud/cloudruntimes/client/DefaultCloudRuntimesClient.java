@@ -23,7 +23,10 @@ import group.rxcloud.cloudruntimes.domain.core.configuration.SaveConfigurationRe
 import group.rxcloud.cloudruntimes.domain.core.configuration.SubConfigurationResp;
 import group.rxcloud.cloudruntimes.domain.core.invocation.HttpExtension;
 import group.rxcloud.cloudruntimes.domain.core.invocation.InvokeMethodRequest;
+import group.rxcloud.cloudruntimes.domain.core.invocation.RegisterServerRequest;
 import group.rxcloud.cloudruntimes.domain.core.pubsub.PublishEventRequest;
+import group.rxcloud.cloudruntimes.domain.core.pubsub.TopicEventRequest;
+import group.rxcloud.cloudruntimes.domain.core.pubsub.TopicSubscription;
 import group.rxcloud.cloudruntimes.domain.core.secrets.GetBulkSecretRequest;
 import group.rxcloud.cloudruntimes.domain.core.secrets.GetSecretRequest;
 import group.rxcloud.cloudruntimes.domain.core.state.DeleteStateRequest;
@@ -65,11 +68,15 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 /**
  * An exception is thrown by default, and some functions can be implemented on demand.
  */
 public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
+
+    @Override
+    List<String> registryNames();
 
     @Override
     default Mono<Void> waitForSidecar(int timeoutInMilliseconds) {
@@ -167,6 +174,16 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     }
 
     @Override
+    default <T, R> Mono<Boolean> registerMethod(String methodName, List<HttpExtension> httpExtensions, Function<T, R> onInvoke, Map<String, String> metadata) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<Boolean> registerServer(RegisterServerRequest registerServerRequest) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
     default Mono<String> publishEvent(String pubsubName, String topicName, Object data) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
@@ -178,6 +195,16 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
 
     @Override
     default Mono<String> publishEvent(PublishEventRequest request) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Flux<TopicEventRequest> subscribeEvents(String pubsubName, String topicName, Map<String, String> metadata) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Flux<TopicEventRequest> subscribeEvents(TopicSubscription topicSubscription) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
@@ -500,9 +527,6 @@ public interface DefaultCloudRuntimesClient extends CloudRuntimesClient {
     default Mono<Void> shutdown() {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
-
-    @Override
-    List<String> registryNames();
 
     @Override
     void close();

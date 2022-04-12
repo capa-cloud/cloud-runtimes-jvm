@@ -18,27 +18,31 @@ package group.rxcloud.cloudruntimes.domain.core;
 
 import group.rxcloud.cloudruntimes.domain.core.invocation.HttpExtension;
 import group.rxcloud.cloudruntimes.domain.core.invocation.InvokeMethodRequest;
+import group.rxcloud.cloudruntimes.domain.core.invocation.RegisterServerRequest;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 /**
  * Service-to-Service Invocation Runtimes standard API defined.
  */
 public interface InvocationRuntimes {
 
+    // -- Runtime as Client
+
     /**
      * Invoke a service method, using serialization.
      *
+     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
      * @param request       The request to be sent to invoke the service, use byte[] to skip serialization.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param metadata      Metadata (in GRPC) or headers (in HTTP) to be sent in data.
      * @param type          The Type needed as return for the call.
-     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @return A Mono Plan of type T.
      */
     <T> Mono<T> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension,
@@ -47,14 +51,13 @@ public interface InvocationRuntimes {
     /**
      * Invoke a service method, using serialization.
      *
+     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
      * @param request       The request to be sent to invoke the service, use byte[] to skip serialization.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param metadata      Metadata (in GRPC) or headers (in HTTP) to be sent in request.
      * @param clazz         The type needed as return for the call.
-     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @return A Mono Plan of type T.
      */
     <T> Mono<T> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension,
@@ -63,13 +66,12 @@ public interface InvocationRuntimes {
     /**
      * Invoke a service method, using serialization.
      *
+     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
      * @param request       The request to be sent to invoke the service, use byte[] to skip serialization.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param type          The Type needed as return for the call.
-     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @return A Mono Plan of type T.
      */
     <T> Mono<T> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension,
@@ -78,13 +80,12 @@ public interface InvocationRuntimes {
     /**
      * Invoke a service method, using serialization.
      *
+     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
      * @param request       The request to be sent to invoke the service, use byte[] to skip serialization.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param clazz         The type needed as return for the call.
-     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @return A Mono Plan of type T.
      */
     <T> Mono<T> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension,
@@ -93,13 +94,12 @@ public interface InvocationRuntimes {
     /**
      * Invoke a service method, using serialization.
      *
+     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param metadata      Metadata (in GRPC) or headers (in HTTP) to be sent in request.
      * @param type          The Type needed as return for the call.
-     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @return A Mono Plan of type T.
      */
     <T> Mono<T> invokeMethod(String appId, String methodName, HttpExtension httpExtension, Map<String, String> metadata,
@@ -108,13 +108,12 @@ public interface InvocationRuntimes {
     /**
      * Invoke a service method, using serialization.
      *
+     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param metadata      Metadata (in GRPC) or headers (in HTTP) to be sent in request.
      * @param clazz         The type needed as return for the call.
-     * @param <T>           The Type of the return, use byte[] to skip serialization.
      * @return A Mono Plan of type T.
      */
     <T> Mono<T> invokeMethod(String appId, String methodName, HttpExtension httpExtension, Map<String, String> metadata,
@@ -126,8 +125,7 @@ public interface InvocationRuntimes {
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
      * @param request       The request to be sent to invoke the service, use byte[] to skip serialization.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param metadata      Metadata (in GRPC) or headers (in HTTP) to be sent in request.
      * @return A Mono Plan of type Void.
      */
@@ -140,8 +138,7 @@ public interface InvocationRuntimes {
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
      * @param request       The request to be sent to invoke the service, use byte[] to skip serialization.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @return A Mono Plan of type Void.
      */
     Mono<Void> invokeMethod(String appId, String methodName, Object request, HttpExtension httpExtension);
@@ -151,8 +148,7 @@ public interface InvocationRuntimes {
      *
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param metadata      Metadata (in GRPC) or headers (in HTTP) to be sent in request.
      * @return A Mono Plan of type Void.
      */
@@ -164,8 +160,7 @@ public interface InvocationRuntimes {
      * @param appId         The Application ID where the service is.
      * @param methodName    The actual Method to be call in the application.
      * @param request       The request to be sent to invoke the service, use byte[] to skip serialization.
-     * @param httpExtension Additional fields that are needed if the receiving app is listening on
-     *                      HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param httpExtension Additional fields that are needed if the receiving app is listening on                      HTTP, {@link HttpExtension#NONE} otherwise.
      * @param metadata      Metadata (in GRPC) or headers (in HTTP) to be sent in request.
      * @return A Mono Plan of type byte[].
      */
@@ -175,10 +170,35 @@ public interface InvocationRuntimes {
     /**
      * Invoke a service method.
      *
+     * @param <T>                 The Type of the return, use byte[] to skip serialization.
      * @param invokeMethodRequest Request object.
      * @param type                The Type needed as return for the call.
-     * @param <T>                 The Type of the return, use byte[] to skip serialization.
      * @return A Mono Plan of type T.
      */
     <T> Mono<T> invokeMethod(InvokeMethodRequest invokeMethodRequest, TypeRef<T> type);
+
+    // -- Runtime as Server
+
+    /**
+     * Register onInvoke method when runtime as server.
+     *
+     * @param <T>            The Type of the request type, use byte[] to skip serialization.
+     * @param <R>            The Type of the response type, use byte[] to skip serialization.
+     * @param methodName     The actual Method to be call in the application.
+     * @param httpExtensions Additional fields that are needed if the receiving app is listening on                       HTTP, {@link HttpExtension#NONE} otherwise.
+     * @param onInvoke       the on invoke
+     * @param metadata       Metadata (in GRPC) or headers (in HTTP) to be received in request.
+     * @return A Mono Plan of register result.
+     */
+    <T, R> Mono<Boolean> registerMethod(String methodName, List<HttpExtension> httpExtensions,
+                                        Function<T, R> onInvoke,
+                                        Map<String, String> metadata);
+
+    /**
+     * Register controller class when runtime as server.
+     *
+     * @param registerServerRequest the register server request
+     * @return A Mono Plan of register result.
+     */
+    Mono<Boolean> registerServer(RegisterServerRequest registerServerRequest);
 }

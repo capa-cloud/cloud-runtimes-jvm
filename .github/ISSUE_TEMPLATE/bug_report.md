@@ -6,7 +6,7 @@ labels: kind/bug
 assignees: ''
 ---
 
-- [ ] I have searched the [issues](https://github.com/reactivegroup/cloud-runtimes-jvm/issues) of this repository and believe that this is not a duplicate.
+- [ ] I have searched the [issues](https://github.com/capa-cloud/cloud-runtimes-jvm/issues) of this repository and believe that this is not a duplicate.
 
 ### Environment
 
