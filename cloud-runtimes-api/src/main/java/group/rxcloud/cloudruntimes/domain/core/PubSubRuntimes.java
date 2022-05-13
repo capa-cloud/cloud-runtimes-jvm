@@ -17,6 +17,9 @@
 package group.rxcloud.cloudruntimes.domain.core;
 
 import group.rxcloud.cloudruntimes.domain.core.pubsub.PublishEventRequest;
+import group.rxcloud.cloudruntimes.domain.core.pubsub.TopicEventRequest;
+import group.rxcloud.cloudruntimes.domain.core.pubsub.TopicSubscription;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -26,17 +29,15 @@ import java.util.Map;
  */
 public interface PubSubRuntimes {
 
+    // -- Runtime as Publisher
+
     /**
      * Publish an event.
      *
      * @param pubsubName the pubsub name we will publish the event to
      * @param topicName  the topicName where the event will be published.
      * @param data       the event's data to be published, use byte[] for skipping serialization.
-     * @return a Mono plan of type String.
-     * <pre>
-     * Please note that this is different from the standard definition.
-     * Return {@code String} refer to https://github.com/reactivegroup/cloud-runtimes-jvm/issues/1
-     * </pre>
+     * @return a Mono plan of type String. <pre> Please note that this is different from the standard definition. Return {@code String} refer to https://github.com/capa-cloud/cloud-runtimes-jvm/issues/1 </pre>
      */
     Mono<String> publishEvent(String pubsubName, String topicName, Object data);
 
@@ -47,11 +48,7 @@ public interface PubSubRuntimes {
      * @param topicName  the topicName where the event will be published.
      * @param data       the event's data to be published, use byte[] for skipping serialization.
      * @param metadata   The metadata for the published event.
-     * @return a Mono plan of type String.
-     * <pre>
-     * Please note that this is different from the standard definition.
-     * Return {@code String} refer to https://github.com/reactivegroup/cloud-runtimes-jvm/issues/1
-     * </pre>
+     * @return a Mono plan of type String. <pre> Please note that this is different from the standard definition. Return {@code String} refer to https://github.com/capa-cloud/cloud-runtimes-jvm/issues/1 </pre>
      */
     Mono<String> publishEvent(String pubsubName, String topicName, Object data, Map<String, String> metadata);
 
@@ -62,8 +59,28 @@ public interface PubSubRuntimes {
      * @return a Mono plan of a CloudRuntimes's String response.
      * <pre>
      * Please note that this is different from the standard definition.
-     * Return {@code String} refer to https://github.com/reactivegroup/cloud-runtimes-jvm/issues/1
+     * Return {@code String} refer to https://github.com/capa-cloud/cloud-runtimes-jvm/issues/1
      * </pre>
      */
     Mono<String> publishEvent(PublishEventRequest request);
+
+    // -- Runtime as Subscriber
+
+    /**
+     * Subscribe events.
+     *
+     * @param pubsubName the pubsub name we will subscribe the event from.
+     * @param topicName  the topicName where the event will be subscribed.
+     * @param metadata   The metadata for the subscription.
+     * @return a Flux stream of subscription events.
+     */
+    Flux<TopicEventRequest> subscribeEvents(String pubsubName, String topicName, Map<String, String> metadata);
+
+    /**
+     * Subscribe events.
+     *
+     * @param topicSubscription the request for topic subscription.
+     * @return a Flux stream of subscription events.
+     */
+    Flux<TopicEventRequest> subscribeEvents(TopicSubscription topicSubscription);
 }
