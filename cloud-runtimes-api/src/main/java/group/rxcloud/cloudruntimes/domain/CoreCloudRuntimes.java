@@ -14,21 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes;
+package group.rxcloud.cloudruntimes.domain;
 
-import group.rxcloud.cloudruntimes.domain.enhanced.DatabaseRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.FileRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.LockRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.ScheduleRuntimes;
-import group.rxcloud.cloudruntimes.domain.enhanced.TelemetryRuntimes;
+import group.rxcloud.cloudruntimes.domain.core.InvocationRuntimes;
+import group.rxcloud.cloudruntimes.domain.core.PubSubRuntimes;
+import group.rxcloud.cloudruntimes.domain.core.BindingRuntimes;
+import group.rxcloud.cloudruntimes.domain.core.StateRuntimes;
+import group.rxcloud.cloudruntimes.domain.core.SecretsRuntimes;
+import group.rxcloud.cloudruntimes.domain.core.ConfigurationRuntimes;
 
 /**
- * Enhanced Cloud Runtimes standard API defined.
+ * Core Cloud Runtimes standard API defined.
  */
-public interface EnhancedCloudRuntimes extends
-        TelemetryRuntimes,
-        DatabaseRuntimes,
-        ScheduleRuntimes,
-        FileRuntimes,
-        LockRuntimes {
+public interface CoreCloudRuntimes extends
+        InvocationRuntimes,
+        PubSubRuntimes,
+        BindingRuntimes,
+        StateRuntimes,
+        SecretsRuntimes,
+        ConfigurationRuntimes {
 }

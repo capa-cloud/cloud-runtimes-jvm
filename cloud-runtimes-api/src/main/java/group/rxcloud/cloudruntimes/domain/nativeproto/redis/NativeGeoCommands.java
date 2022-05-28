@@ -14,10 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.enhanced.redis;
+package group.rxcloud.cloudruntimes.domain.nativeproto.redis;
+
+import group.rxcloud.cloudruntimes.domain.nativeproto.redis.geo.GeoRadiusResponse;
+import group.rxcloud.cloudruntimes.domain.nativeproto.redis.geo.GeoUnit;
+
+import java.util.List;
 
 /**
- * The interface Native geo commands.
+ * The Native geo commands.
+ *
+ * @link <a href="http://redisdoc.com/geo/index.html">geo</a>
  */
 public interface NativeGeoCommands {
 
@@ -32,14 +39,15 @@ public interface NativeGeoCommands {
      */
     Long geoadd(String key, double longitude, double latitude, String member);
 
-    /**
-     * Geoadd.
-     *
-     * @param key       the key
-     * @param longitude the longitude
-     * @param latitude  the latitude
-     * @param member    the member
-     * @return the long
-     */
-    Long geoadd(byte[] key, double longitude, double latitude, byte[] member);
+    // TODO: 2022/5/28 GEOPOS
+
+    Double geodist(String key, String member1, String member2, GeoUnit unit);
+
+    List<GeoRadiusResponse> georadius(String key, double longitude, double latitude, double radius,
+                                      GeoUnit unit, String withX, String sortX, int count);
+
+    List<GeoRadiusResponse> georadiusByMember(String key, String member, double radius,
+                                              GeoUnit unit, String withX, String sortX, int count);
+
+    List<String> geohash(String key, String... members);
 }
