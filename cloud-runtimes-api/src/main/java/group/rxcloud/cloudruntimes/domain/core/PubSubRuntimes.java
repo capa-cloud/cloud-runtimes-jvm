@@ -59,7 +59,7 @@ public interface PubSubRuntimes {
      * @return a Mono plan of a CloudRuntimes's String response.
      * <pre>
      * Please note that this is different from the standard definition.
-     * Return {@code String} refer to https://github.com/capa-cloud/cloud-runtimes-jvm/issues/1
+     * Return {@code String} refer to <a href="https://github.com/capa-cloud/cloud-runtimes-jvm/issues/1">...</a>
      * </pre>
      */
     Mono<String> publishEvent(PublishEventRequest request);
