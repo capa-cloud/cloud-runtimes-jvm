@@ -32,7 +32,13 @@ import group.rxcloud.cloudruntimes.domain.nativeproto.redis.NativeSetCommands;
 import group.rxcloud.cloudruntimes.domain.nativeproto.redis.NativeSortedSetCommands;
 import group.rxcloud.cloudruntimes.domain.nativeproto.redis.NativeStringCommands;
 import group.rxcloud.cloudruntimes.domain.nativeproto.redis.NativeTransactionCommands;
+import reactor.core.publisher.Mono;
 
+import java.util.Map;
+
+/**
+ * Native Redis API defined.
+ */
 public interface NativeRedisRuntimes extends
         NativeAdminCommands,
         NativeBitCommands,
@@ -50,4 +56,16 @@ public interface NativeRedisRuntimes extends
         NativeSortedSetCommands,
         NativeStringCommands,
         NativeTransactionCommands {
+
+    /**
+     * Invokes a Redis operation as `RESP protocol spec`.
+     *
+     * @param storeName The name of the redis store to call.
+     * @param cmd       The cmd to be processed.
+     * @param args      The args to be processed.
+     * @param metadata  The metadata map.
+     * @return a Mono plan of type byte[].
+     * @see <a href="https://redis.io/docs/reference/protocol-spec/">RESP</a>
+     */
+    Mono<byte[]> invokeRedis(String storeName, String cmd, byte[] args, Map<String, String> metadata);
 }

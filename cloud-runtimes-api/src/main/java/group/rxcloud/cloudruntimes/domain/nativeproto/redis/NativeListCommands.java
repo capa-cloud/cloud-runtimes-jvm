@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * The Native list commands.
  *
- * @link <a href="http://redisdoc.com/list/index.html">list</a>
+ * @see <a href="http://redisdoc.com/list/index.html">list</a>
  */
 public interface NativeListCommands {
 
@@ -96,10 +96,12 @@ public interface NativeListCommands {
 
     /**
      * Removes the first count occurrences of elements equal to value from the list stored at key.
-     * The count argument influences the operation in the following ways:<br>
-     * count > 0: Remove elements equal to value moving from head to tail.<br>
-     * count < 0: Remove elements equal to value moving from tail to head.<br>
+     * The count argument influences the operation in the following ways:
+     * <pre>
+     * count more than 0: Remove elements equal to value moving from head to tail.
+     * count less than 0: Remove elements equal to value moving from tail to head.
      * count = 0: Remove all elements equal to value.
+     * </pre>
      *
      * @param key     the key
      * @param count   the count

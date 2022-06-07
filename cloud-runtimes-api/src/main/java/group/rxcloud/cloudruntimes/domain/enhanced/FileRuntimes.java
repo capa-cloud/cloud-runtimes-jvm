@@ -25,25 +25,40 @@ import group.rxcloud.cloudruntimes.domain.enhanced.file.PutFileRequest;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * File API defined.
+ */
 public interface FileRuntimes {
 
     /**
      * Get file
+     *
+     * @param request the request
+     * @return the file
      */
     Mono<GetFileResponse> getFile(GetFileRequest request);
 
     /**
      * Put file with stream
+     *
+     * @param requests the requests
+     * @return the mono
      */
     Mono<Void> putFile(Flux<PutFileRequest> requests);
 
     /**
      * List all files
+     *
+     * @param request the request
+     * @return the mono
      */
     Mono<ListFileResp> listFile(ListFileRequest request);
 
     /**
      * Delete specific file
+     *
+     * @param request the request
+     * @return the mono
      */
     Mono<Void> delFile(DelFileRequest request);
 }

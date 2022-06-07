@@ -21,7 +21,7 @@ import reactor.core.publisher.Flux;
 import java.util.Map;
 
 /**
- * Schedule Bindings Runtimes standard API defined.
+ * Schedule standard API defined.
  */
 public interface ScheduleRuntimes {
 

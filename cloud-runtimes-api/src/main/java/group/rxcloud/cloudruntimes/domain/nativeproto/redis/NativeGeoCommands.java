@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * The Native geo commands.
  *
- * @link <a href="http://redisdoc.com/geo/index.html">geo</a>
+ * @see <a href="http://redisdoc.com/geo/index.html">geo</a>
  */
 public interface NativeGeoCommands {
 
@@ -41,13 +41,54 @@ public interface NativeGeoCommands {
 
     // TODO: 2022/5/28 GEOPOS
 
+    /**
+     * Geodist double.
+     *
+     * @param key     the key
+     * @param member1 the member 1
+     * @param member2 the member 2
+     * @param unit    the unit
+     * @return the double
+     */
     Double geodist(String key, String member1, String member2, GeoUnit unit);
 
+    /**
+     * Georadius list.
+     *
+     * @param key       the key
+     * @param longitude the longitude
+     * @param latitude  the latitude
+     * @param radius    the radius
+     * @param unit      the unit
+     * @param withX     the with x
+     * @param sortX     the sort x
+     * @param count     the count
+     * @return the list
+     */
     List<GeoRadiusResponse> georadius(String key, double longitude, double latitude, double radius,
                                       GeoUnit unit, String withX, String sortX, int count);
 
+    /**
+     * Georadius by member list.
+     *
+     * @param key    the key
+     * @param member the member
+     * @param radius the radius
+     * @param unit   the unit
+     * @param withX  the with x
+     * @param sortX  the sort x
+     * @param count  the count
+     * @return the list
+     */
     List<GeoRadiusResponse> georadiusByMember(String key, String member, double radius,
                                               GeoUnit unit, String withX, String sortX, int count);
 
+    /**
+     * Geohash list.
+     *
+     * @param key     the key
+     * @param members the members
+     * @return the list
+     */
     List<String> geohash(String key, String... members);
 }

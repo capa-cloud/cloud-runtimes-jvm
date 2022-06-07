@@ -23,7 +23,7 @@ import java.util.Set;
 /**
  * The Native set commands.
  *
- * @link <a href="http://redisdoc.com/set/index.html">set</a>
+ * @see <a href="http://redisdoc.com/set/index.html">set</a>
  */
 public interface NativeSetCommands {
 
@@ -55,7 +55,8 @@ public interface NativeSetCommands {
      * <p>
      * Time complexity O(1)
      *
-     * @param key the key
+     * @param key   the key
+     * @param count the count
      * @return Bulk reply
      */
     Set<String> spop(String key, long count);
@@ -69,9 +70,7 @@ public interface NativeSetCommands {
      * Time complexity O(1)
      *
      * @param key   the key
-     * @param count if positive, return an array of distinct elements.
-     *              If negative the behavior changes and the command is allowed to
-     *              return the same element multiple times
+     * @param count if positive, return an array of distinct elements.              If negative the behavior changes and the command is allowed to              return the same element multiple times
      * @return A list of randomly selected elements
      */
     List<String> srandmember(String key, long count);
@@ -103,8 +102,7 @@ public interface NativeSetCommands {
      * @param srckey source key
      * @param dstkey destination key
      * @param member set member
-     * @return 1 if the element was moved, 0 if the element was not found
-     * on the first set and no operation was performed
+     * @return 1 if the element was moved, 0 if the element was not found on the first set and no operation was performed
      */
     long smove(String srckey, String dstkey, String member);
 

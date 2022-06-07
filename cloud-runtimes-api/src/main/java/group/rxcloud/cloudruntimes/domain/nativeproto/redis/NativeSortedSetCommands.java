@@ -23,7 +23,7 @@ import java.util.Set;
 /**
  * The Native sorted set commands.
  *
- * @link <a href="http://redisdoc.com/sorted_set/index.html">sorted set</a>
+ * @see <a href="http://redisdoc.com/sorted_set/index.html">sorted set</a>
  */
 public interface NativeSortedSetCommands {
 
@@ -191,6 +191,7 @@ public interface NativeSortedSetCommands {
     /**
      * For an ordered set key where all members have the same score, this command returns the number of elements in the set whose members are in the min and Max range.     * @param key
      *
+     * @param key the key
      * @param min the min
      * @param max the max
      * @return Integer reply: The number of elements in the specified range.
@@ -235,7 +236,7 @@ public interface NativeSortedSetCommands {
      * @param dstkey destination key
      * @param sets   sets
      * @return The number of elements in the sorted set at dstkey
-     * @see #zunionstore(String, String...)
+     * @see #zunionstore(String, String...) #zunionstore(String, String...)
      */
     long zunionstore(String dstkey, String... sets);
 
@@ -266,7 +267,7 @@ public interface NativeSortedSetCommands {
      * @param dstkey destination key
      * @param sets   sets
      * @return The number of elements in the sorted set at dstkey
-     * @see #zunionstore(String, String...)
+     * @see #zunionstore(String, String...) #zunionstore(String, String...)
      */
     long zinterstore(String dstkey, String... sets);
 }

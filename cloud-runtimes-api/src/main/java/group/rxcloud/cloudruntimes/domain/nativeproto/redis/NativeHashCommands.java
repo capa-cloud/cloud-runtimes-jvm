@@ -25,7 +25,7 @@ import java.util.Set;
 /**
  * The Native hash commands.
  *
- * @link <a href="http://redisdoc.com/hash/index.html">hash</a>
+ * @see <a href="http://redisdoc.com/hash/index.html">hash</a>
  */
 public interface NativeHashCommands {
 
@@ -87,6 +87,13 @@ public interface NativeHashCommands {
     Long hlen(String key);
 
 
+    /**
+     * Hstrlen long.
+     *
+     * @param key   the key
+     * @param field the field
+     * @return the long
+     */
     Long hstrlen(String key, String field);
 
     /**

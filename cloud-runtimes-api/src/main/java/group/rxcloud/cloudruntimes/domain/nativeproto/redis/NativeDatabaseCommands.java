@@ -1,9 +1,25 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package group.rxcloud.cloudruntimes.domain.nativeproto.redis;
 
 /**
  * The Native database commands.
  *
- * @link <a href="http://redisdoc.com/database/index.html">database</a>
+ * @see <a href="http://redisdoc.com/database/index.html">database</a>
  */
 public interface NativeDatabaseCommands {
 
@@ -27,7 +43,7 @@ public interface NativeDatabaseCommands {
     /**
      * Delete all the keys of the currently selected DB. This command never fails.
      *
-     * @return OK
+     * @return OK string
      */
     String flushDB();
 
@@ -35,7 +51,7 @@ public interface NativeDatabaseCommands {
      * Delete all the keys of all the existing databases, not just the currently selected one. This
      * command never fails.
      *
-     * @return OK
+     * @return OK string
      */
     String flushAll();
 
@@ -44,9 +60,16 @@ public interface NativeDatabaseCommands {
      * connection connection is automatically selected to DB 0.
      *
      * @param index db index
-     * @return OK
+     * @return OK string
      */
     String select(final int index);
 
+    /**
+     * Swap db string.
+     *
+     * @param index1 the index 1
+     * @param index2 the index 2
+     * @return the string
+     */
     String swapDB(final int index1, final int index2);
 }

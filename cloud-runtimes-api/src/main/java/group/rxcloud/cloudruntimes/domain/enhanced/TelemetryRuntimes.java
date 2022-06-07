@@ -22,7 +22,7 @@ import io.opentelemetry.context.propagation.ContextPropagators;
 import reactor.core.publisher.Mono;
 
 /**
- * Metrics Runtimes standard API defined.
+ * Metric/Trace standard API defined.
  */
 public interface TelemetryRuntimes {
 
@@ -30,29 +30,29 @@ public interface TelemetryRuntimes {
      * Build a tracer with specific tracer name.
      *
      * @param tracerName tracer name.
-     * @return tracer.
+     * @return tracer. mono
      */
     Mono<Tracer> buildTracer(String tracerName);
 
     /**
      * Build a tracer with specific tracer name, version.
      *
-     * @see io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String)
      * @param tracerName tracer name.
-     * @param version version.
-     * @return tracer.
+     * @param version    version.
+     * @return tracer. mono
+     * @see io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String) io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String)
      */
     Mono<Tracer> buildTracer(String tracerName, String version);
 
     /**
      * Build a tracer with specific tracer name, version and schemaUrl.
      *
-     * @see io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String)
-     * @see io.opentelemetry.api.trace.TracerBuilder#setSchemaUrl(String) (String)
      * @param tracerName tracer name.
-     * @param version version.
-     * @param schemaUrl schemaUrl.
-     * @return tracer.
+     * @param version    version.
+     * @param schemaUrl  schemaUrl.
+     * @return tracer. mono
+     * @see io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String) io.opentelemetry.api.trace.TracerBuilder#setInstrumentationVersion(String)
+     * @see io.opentelemetry.api.trace.TracerBuilder#setSchemaUrl(String) io.opentelemetry.api.trace.TracerBuilder#setSchemaUrl(String)(String)
      */
     Mono<Tracer> buildTracer(String tracerName, String version, String schemaUrl);
 
@@ -67,7 +67,7 @@ public interface TelemetryRuntimes {
      * Build a meter with specific meter name.
      *
      * @param meterName meter name.
-     * @return meter.
+     * @return meter. mono
      */
     Mono<Meter> buildMeter(String meterName);
 
@@ -75,8 +75,8 @@ public interface TelemetryRuntimes {
      * Build a meter with specific meter name and version.
      *
      * @param meterName meter name.
-     * @param version version.
-     * @return meter.
+     * @param version   version.
+     * @return meter. mono
      */
     Mono<Meter> buildMeter(String meterName, String version);
 
@@ -84,9 +84,9 @@ public interface TelemetryRuntimes {
      * Build a meter with specific meter name, version and schemaUrl.
      *
      * @param meterName meter name.
-     * @param version version.
+     * @param version   version.
      * @param schemaUrl schemaUrl.
-     * @return meter.
+     * @return meter. mono
      */
     Mono<Meter> buildMeter(String meterName, String version, String schemaUrl);
 }

@@ -22,8 +22,8 @@ import java.util.Set;
 /**
  * The Native key commands.
  *
- * @link <a href="http://redisdoc.com/database/index.html">database</a>
- * @link <a href="http://redisdoc.com/expire/index.html">expire</a>
+ * @see <a href="http://redisdoc.com/database/index.html">database</a>
+ * @see <a href="http://redisdoc.com/expire/index.html">expire</a>
  */
 public interface NativeKeyCommands {
 
@@ -51,7 +51,7 @@ public interface NativeKeyCommands {
      *
      * @param oldkey old key
      * @param newkey new key
-     * @return OK
+     * @return OK string
      */
     String rename(String oldkey, String newkey);
 
@@ -170,10 +170,15 @@ public interface NativeKeyCommands {
      *
      * @param key                   the key
      * @param millisecondsTimestamp time to expire
-     * @return 1 if the timeout was set, 0 otherwise.
-     * e.g. key doesn't exist, or operation skipped due to the provided arguments.
+     * @return 1 if the timeout was set, 0 otherwise. e.g. key doesn't exist, or operation skipped due to the provided arguments.
      */
     long pexpireAt(final String key, final long millisecondsTimestamp);
 
+    /**
+     * Pttl long.
+     *
+     * @param key the key
+     * @return the long
+     */
     long pttl(final String key);
 }

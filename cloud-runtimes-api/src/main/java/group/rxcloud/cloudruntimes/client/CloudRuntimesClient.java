@@ -33,6 +33,8 @@ public interface CloudRuntimesClient extends AutoCloseable,
 
     /**
      * Registry Component names.
+     *
+     * @return registry name list.
      */
     List<String> registryNames();
 
