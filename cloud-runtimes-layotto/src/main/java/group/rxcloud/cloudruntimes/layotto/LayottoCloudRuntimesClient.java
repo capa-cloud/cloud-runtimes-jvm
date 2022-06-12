@@ -486,7 +486,7 @@ public class LayottoCloudRuntimesClient implements DefaultCloudRuntimesClient {
     }
 
     @Override
-    public Mono<Void> putFile(Flux<PutFileRequest> requests) {
+    public Mono<String> putFile(Flux<PutFileRequest> requests) {
         return DefaultCloudRuntimesClient.super.putFile(requests);
     }
 

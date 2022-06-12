@@ -44,7 +44,7 @@ public interface FileRuntimes {
      * @param requests the requests
      * @return the mono
      */
-    Mono<Void> putFile(Flux<PutFileRequest> requests);
+    Mono<String> putFile(Flux<PutFileRequest> requests);
 
     /**
      * List all files

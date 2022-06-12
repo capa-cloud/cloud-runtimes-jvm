@@ -17,6 +17,7 @@
 package group.rxcloud.cloudruntimes.domain;
 
 import group.rxcloud.cloudruntimes.domain.enhanced.DatabaseRuntimes;
+import group.rxcloud.cloudruntimes.domain.enhanced.EnvironmentRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.FileRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.LockRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.ScheduleRuntimes;
@@ -60,7 +61,8 @@ public interface EnhancedCloudRuntimes extends
         DatabaseRuntimes,
         ScheduleRuntimes,
         FileRuntimes,
-        LockRuntimes {
+        LockRuntimes,
+        EnvironmentRuntimes {
 
     @Override
     default Mono<GetConnectionResponse> getConnection(GetConnectionRequest req) {
@@ -138,7 +140,7 @@ public interface EnhancedCloudRuntimes extends
     }
 
     @Override
-    default Mono<Void> putFile(Flux<PutFileRequest> requests) {
+    default Mono<String> putFile(Flux<PutFileRequest> requests) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 
@@ -199,6 +201,36 @@ public interface EnhancedCloudRuntimes extends
 
     @Override
     default Mono<Meter> buildMeter(String meterName, String version, String schemaUrl) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default String appId() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default String env() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default String ip() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default String cloud() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default String region() {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default String getProperty(String name, String defaultValue) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 }

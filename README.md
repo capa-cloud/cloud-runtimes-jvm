@@ -34,6 +34,8 @@ The Multi-Runtime Standard API for Mecha architecture Projects:
 + Application Log/Metrics/Traces (Telemetry)
 + Database (DB) -alpha
 + Schedule (Schedule) -alpha
++ RateLimit (RateLimit) -alpha
++ Environment (Env) -alpha
 + Native Redis (Redis) -alpha
 + Native SQL (SQL) -alpha
 + ...
@@ -53,7 +55,7 @@ For a Maven project, add the following to your `pom.xml` file:
         <dependency>
             <groupId>group.rxcloud</groupId>
             <artifactId>cloud-runtimes-api</artifactId>
-            <version>1.13.RELEASE</version>
+            <version>1.14.RELEASE</version>
         </dependency>
         ...
     </dependencies>
@@ -67,6 +69,6 @@ For a Gradle project, add the following to your `build.gradle` file:
 dependencies {
    // ...
    // https://mvnrepository.com/artifact/group.rxcloud/cloud-runtimes-api
-   implementation group: 'group.rxcloud', name: 'cloud-runtimes-api', version: '1.13.RELEASE'
+   implementation group: 'group.rxcloud', name: 'cloud-runtimes-api', version: '1.14.RELEASE'
 }
 ```
