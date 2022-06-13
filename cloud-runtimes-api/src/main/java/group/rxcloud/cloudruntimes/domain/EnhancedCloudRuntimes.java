@@ -21,6 +21,7 @@ import group.rxcloud.cloudruntimes.domain.enhanced.EnvironmentRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.FileRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.LockRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.ScheduleRuntimes;
+import group.rxcloud.cloudruntimes.domain.enhanced.SequencerRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.TelemetryRuntimes;
 import group.rxcloud.cloudruntimes.domain.enhanced.database.CreateTableRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.database.CreateTableResponse;
@@ -44,6 +45,8 @@ import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockResponse;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockResponse;
+import group.rxcloud.cloudruntimes.domain.enhanced.sequencer.GetNextIdRequest;
+import group.rxcloud.cloudruntimes.domain.enhanced.sequencer.GetNextIdResponse;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import io.opentelemetry.api.metrics.Meter;
 import io.opentelemetry.api.trace.Tracer;
@@ -62,7 +65,8 @@ public interface EnhancedCloudRuntimes extends
         ScheduleRuntimes,
         FileRuntimes,
         LockRuntimes,
-        EnvironmentRuntimes {
+        EnvironmentRuntimes,
+        SequencerRuntimes {
 
     @Override
     default Mono<GetConnectionResponse> getConnection(GetConnectionRequest req) {
@@ -231,6 +235,11 @@ public interface EnhancedCloudRuntimes extends
 
     @Override
     default String getProperty(String name, String defaultValue) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<GetNextIdResponse> getNextId(GetNextIdRequest request) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 }
