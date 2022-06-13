@@ -23,7 +23,7 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>1.14.RELEASE</version>
+    <version>1.15.RELEASE</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
