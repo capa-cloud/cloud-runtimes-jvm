@@ -19,6 +19,7 @@ package group.rxcloud.cloudruntimes.domain;
 import group.rxcloud.cloudruntimes.domain.nativeproto.NativeAwsS3Runtimes;
 import group.rxcloud.cloudruntimes.domain.nativeproto.NativeRedisRuntimes;
 import group.rxcloud.cloudruntimes.domain.nativeproto.NativeSqlRuntimes;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.*;
 import group.rxcloud.cloudruntimes.domain.nativeproto.redis.geo.GeoRadiusResponse;
 import group.rxcloud.cloudruntimes.domain.nativeproto.redis.geo.GeoUnit;
 import reactor.core.publisher.Mono;
@@ -582,6 +583,26 @@ public interface NativeProtocolCloudRuntimes extends
 
     @Override
     default List<String> mget(String... keys) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default void initClient(InitRequest initRequest) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default PutObjectOutput putObject(PutObjectInput putObjectInput) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default GetObjectOutput getObject(GetObjectInput getObjectInput) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default DeleteObjectOutput deleteObject(DeleteObjectInput deleteObjectInput) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 }

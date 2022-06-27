@@ -60,6 +60,7 @@ import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockResponse;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockResponse;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.*;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import io.opentelemetry.api.metrics.Meter;
 import io.opentelemetry.api.trace.Tracer;
@@ -531,5 +532,25 @@ public class CapaCloudRuntimesClient implements DefaultCloudRuntimesClient {
 
     @Override
     public void close() {
+    }
+
+    @Override
+    public void initClient(InitRequest initRequest) {
+        DefaultCloudRuntimesClient.super.initClient(initRequest);
+    }
+
+    @Override
+    public PutObjectOutput putObject(PutObjectInput putObjectInput) {
+        return DefaultCloudRuntimesClient.super.putObject(putObjectInput);
+    }
+
+    @Override
+    public GetObjectOutput getObject(GetObjectInput getObjectInput) {
+        return DefaultCloudRuntimesClient.super.getObject(getObjectInput);
+    }
+
+    @Override
+    public DeleteObjectOutput deleteObject(DeleteObjectInput deleteObjectInput) {
+        return DefaultCloudRuntimesClient.super.deleteObject(deleteObjectInput);
     }
 }

@@ -16,11 +16,39 @@
  */
 package group.rxcloud.cloudruntimes.domain.nativeproto;
 
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.*;
+
 /**
  * Native OSS AWS S3 API defined.
  */
 public interface NativeAwsS3Runtimes {
 
+    /**
+     * Initialize the s3 client.
+     * @param initRequest
+     */
+    void initClient(InitRequest initRequest);
+
+    /**
+     * Put a object to oss。
+     * @param putObjectInput
+     * @return
+     */
+    PutObjectOutput putObject(PutObjectInput putObjectInput);
+
+    /**
+     * Get a object from oss.
+     * @param getObjectInput
+     * @return
+     */
+    GetObjectOutput getObject(GetObjectInput getObjectInput);
+
+    /**
+     * Delete the object from oss。
+     * @param deleteObjectInput
+     * @return
+     */
+    DeleteObjectOutput deleteObject(DeleteObjectInput deleteObjectInput);
     /*
 syntax = "proto3";
 
