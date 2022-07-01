@@ -60,6 +60,13 @@ import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.TryLockResponse;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockRequest;
 import group.rxcloud.cloudruntimes.domain.enhanced.lock.UnlockResponse;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.DeleteObjectInput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.DeleteObjectOutput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.GetObjectInput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.GetObjectOutput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.InitRequest;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.PutObjectInput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.PutObjectOutput;
 import group.rxcloud.cloudruntimes.utils.TypeRef;
 import io.opentelemetry.api.metrics.Meter;
 import io.opentelemetry.api.trace.Tracer;
@@ -531,5 +538,25 @@ public class CapaCloudRuntimesClient implements DefaultCloudRuntimesClient {
 
     @Override
     public void close() {
+    }
+
+    @Override
+    public void initClient(InitRequest initRequest) {
+        DefaultCloudRuntimesClient.super.initClient(initRequest);
+    }
+
+    @Override
+    public Mono<PutObjectOutput> putObject(PutObjectInput putObjectInput) {
+        return DefaultCloudRuntimesClient.super.putObject(putObjectInput);
+    }
+
+    @Override
+    public Mono<GetObjectOutput> getObject(GetObjectInput getObjectInput) {
+        return DefaultCloudRuntimesClient.super.getObject(getObjectInput);
+    }
+
+    @Override
+    public Mono<DeleteObjectOutput> deleteObject(DeleteObjectInput deleteObjectInput) {
+        return DefaultCloudRuntimesClient.super.deleteObject(deleteObjectInput);
     }
 }
