@@ -20,6 +20,7 @@ package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
  * Delete object from oss by bucket name and object key name。
  */
 public class DeleteObjectInput {
+
     /**
      * Required. The bucket name containing the object.
      */
@@ -43,5 +44,13 @@ public class DeleteObjectInput {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    @Override
+    public String toString() {
+        return "DeleteObjectInput{" +
+                "bucket='" + bucket + '\'' +
+                ", key='" + key + '\'' +
+                '}';
     }
 }

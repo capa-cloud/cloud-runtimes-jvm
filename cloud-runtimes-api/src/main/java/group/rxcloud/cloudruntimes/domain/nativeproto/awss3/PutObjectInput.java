@@ -16,12 +16,14 @@
  */
 package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
 
+import java.util.Arrays;
 import java.util.Map;
 
 /**
- *  Put object to oss by bucket name and object key name。
+ * Put object to oss by bucket name and object key name。
  */
 public class PutObjectInput {
+
     /**
      * Byte stream for the specified object.
      */
@@ -69,5 +71,15 @@ public class PutObjectInput {
 
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
+    }
+
+    @Override
+    public String toString() {
+        return "PutObjectInput{" +
+                "data=" + Arrays.toString(data) +
+                ", bucket='" + bucket + '\'' +
+                ", key='" + key + '\'' +
+                ", metadata=" + metadata +
+                '}';
     }
 }

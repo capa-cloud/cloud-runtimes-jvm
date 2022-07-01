@@ -20,6 +20,7 @@ package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
  * Get object from oss by bucket name and object key name。
  */
 public class GetObjectInput {
+
     /**
      * Required. The bucket name containing the object.
      */
@@ -43,5 +44,13 @@ public class GetObjectInput {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    @Override
+    public String toString() {
+        return "GetObjectInput{" +
+                "bucket='" + bucket + '\'' +
+                ", key='" + key + '\'' +
+                '}';
     }
 }

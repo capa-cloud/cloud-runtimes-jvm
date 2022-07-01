@@ -22,6 +22,7 @@ import java.util.Map;
  * Initialize the client's request entity.
  */
 public class InitRequest {
+
     /**
      * The name of oss.
      */
@@ -45,5 +46,13 @@ public class InitRequest {
 
     public void setMetadata(Map<String, String> metadata) {
         this.metadata = metadata;
+    }
+
+    @Override
+    public String toString() {
+        return "InitRequest{" +
+                "storeName='" + storeName + '\'' +
+                ", metadata=" + metadata +
+                '}';
     }
 }

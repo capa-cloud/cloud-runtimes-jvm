@@ -20,6 +20,7 @@ package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
  * Put object to oss by bucket name and object key name。
  */
 public class PutObjectOutput {
+
     /**
      * Entity tag for the uploaded object.
      */
@@ -31,5 +32,12 @@ public class PutObjectOutput {
 
     public void setETag(String eTag) {
         this.eTag = eTag;
+    }
+
+    @Override
+    public String toString() {
+        return "PutObjectOutput{" +
+                "eTag='" + eTag + '\'' +
+                '}';
     }
 }

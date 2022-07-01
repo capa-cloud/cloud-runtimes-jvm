@@ -16,6 +16,8 @@
  */
 package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
 
+import java.util.Arrays;
+
 /**
  * Get object from oss by bucket name and object key name。
  */
@@ -32,5 +34,12 @@ public class GetObjectOutput {
 
     public void setData(byte[] data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "GetObjectOutput{" +
+                "data=" + Arrays.toString(data) +
+                '}';
     }
 }

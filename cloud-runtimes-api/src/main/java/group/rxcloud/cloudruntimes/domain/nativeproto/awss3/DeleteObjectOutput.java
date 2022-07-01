@@ -20,6 +20,7 @@ package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
  * Delete object from oss by bucket name and object key name。
  */
 public class DeleteObjectOutput {
+
     /**
      * Specifies whether the object retrieved was (true) or was not (false) a Delete Marker.
      */
@@ -55,5 +56,14 @@ public class DeleteObjectOutput {
 
     public void setVersionId(String versionId) {
         this.versionId = versionId;
+    }
+
+    @Override
+    public String toString() {
+        return "DeleteObjectOutput{" +
+                "deleteMarker=" + deleteMarker +
+                ", requestCharged='" + requestCharged + '\'' +
+                ", versionId='" + versionId + '\'' +
+                '}';
     }
 }
