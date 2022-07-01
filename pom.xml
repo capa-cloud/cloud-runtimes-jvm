@@ -23,7 +23,7 @@
     <groupId>group.rxcloud</groupId>
     <artifactId>cloud-runtimes</artifactId>
     <packaging>pom</packaging>
-    <version>1.15.RELEASE</version>
+    <version>1.16.RELEASE</version>
 
     <name>cloud-runtimes-jvm</name>
     <description>Cloud Runtimes Specification for the JVM.</description>
@@ -171,6 +171,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <id>copy-checkstyle</id>
