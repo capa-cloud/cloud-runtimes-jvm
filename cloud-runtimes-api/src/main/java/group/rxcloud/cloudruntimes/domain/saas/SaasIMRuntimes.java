@@ -20,7 +20,13 @@ import group.rxcloud.cloudruntimes.domain.saas.im.SendIMRequest;
 import group.rxcloud.cloudruntimes.domain.saas.im.SendIMResponse;
 import reactor.core.publisher.Mono;
 
+/**
+ * The Saas IM notify API.
+ */
 public interface SaasIMRuntimes {
 
+    /**
+     * Send IM message.
+     */
     Mono<SendIMResponse> sendIM(SendIMRequest request);
 }

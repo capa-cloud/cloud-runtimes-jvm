@@ -20,9 +20,18 @@ import group.rxcloud.cloudruntimes.domain.saas.cryption.CryptRequest;
 import group.rxcloud.cloudruntimes.domain.saas.cryption.CryptResponse;
 import reactor.core.publisher.Mono;
 
+/**
+ * The Saas cryption runtimes API.
+ */
 public interface SaasCryptionRuntimes {
 
+    /**
+     * Encrypt key.
+     */
     Mono<CryptResponse> encrypt(CryptRequest request);
 
+    /**
+     * Decrypt key.
+     */
     Mono<CryptResponse> decrypt(CryptRequest request);
 }

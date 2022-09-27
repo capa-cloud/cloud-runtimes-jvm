@@ -22,9 +22,18 @@ import group.rxcloud.cloudruntimes.domain.saas.email.SendEmailWithTemplateReques
 import group.rxcloud.cloudruntimes.domain.saas.email.SendEmailWithTemplateResponse;
 import reactor.core.publisher.Mono;
 
+/**
+ * The Saas email notify API.
+ */
 public interface SaasEmailRuntimes {
 
+    /**
+     * Send email.
+     */
     Mono<SendEmailResponse> sendEmail(SendEmailRequest request);
 
+    /**
+     * Send email with template.
+     */
     Mono<SendEmailWithTemplateResponse> sendEmailWithTemplate(SendEmailWithTemplateRequest request);
 }
