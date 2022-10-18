@@ -21,9 +21,13 @@ import group.rxcloud.cloudruntimes.domain.nativeproto.NativeRedisRuntimes;
 import group.rxcloud.cloudruntimes.domain.nativeproto.NativeSqlRuntimes;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.DeleteObjectInput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.DeleteObjectOutput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.IsObjectExistInput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.IsObjectExistOutput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.GetObjectInput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.GetObjectOutput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.InitRequest;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.ListObjectsInput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.ListObjectsOutput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.PutObjectInput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.PutObjectOutput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.redis.geo.GeoRadiusResponse;
@@ -609,6 +613,16 @@ public interface NativeProtocolCloudRuntimes extends
 
     @Override
     default Mono<DeleteObjectOutput> deleteObject(DeleteObjectInput deleteObjectInput) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<ListObjectsOutput> listObjects(ListObjectsInput listObjectsInput) {
+        throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
+    }
+
+    @Override
+    default Mono<IsObjectExistOutput> isObjectExist(IsObjectExistInput isObjectExistInput) {
         throw new UnsupportedOperationException("CloudRuntimes Operate Unsupported.");
     }
 }

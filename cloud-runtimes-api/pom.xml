@@ -23,7 +23,7 @@
     <parent>
         <groupId>group.rxcloud</groupId>
         <artifactId>cloud-runtimes</artifactId>
-        <version>1.17.RELEASE</version>
+        <version>1.18.RELEASE</version>
     </parent>
 
     <artifactId>cloud-runtimes-api</artifactId>
