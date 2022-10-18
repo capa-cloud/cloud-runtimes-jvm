@@ -67,6 +67,7 @@ public interface NativeAwsS3Runtimes {
 
     /**
      * List objects from oss.
+     *
      * @param listObjectsInput
      * @return
      */
@@ -74,6 +75,7 @@ public interface NativeAwsS3Runtimes {
 
     /**
      * Check if an object exists.
+     *
      * @param isObjectExistInput
      * @return
      */

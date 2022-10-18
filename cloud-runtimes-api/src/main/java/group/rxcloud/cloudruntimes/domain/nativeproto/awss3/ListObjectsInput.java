@@ -30,7 +30,7 @@ public class ListObjectsInput {
      * Marker is where you want Amazon S3 to start listing from. Amazon S3 starts
      * listing after this specified key. Marker can be any key in the bucket.
      */
-    private String marker ;
+    private String marker;
     /**
      * Bucket name.
      */
