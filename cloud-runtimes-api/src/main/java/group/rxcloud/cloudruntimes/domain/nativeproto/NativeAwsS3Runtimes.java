@@ -18,9 +18,13 @@ package group.rxcloud.cloudruntimes.domain.nativeproto;
 
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.DeleteObjectInput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.DeleteObjectOutput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.DoesObjectExistInput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.DoesObjectExistOutput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.GetObjectInput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.GetObjectOutput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.InitRequest;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.ListObjectsInput;
+import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.ListObjectsOutput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.PutObjectInput;
 import group.rxcloud.cloudruntimes.domain.nativeproto.awss3.PutObjectOutput;
 import reactor.core.publisher.Mono;
@@ -56,6 +60,20 @@ public interface NativeAwsS3Runtimes {
      * @return
      */
     Mono<DeleteObjectOutput> deleteObject(DeleteObjectInput deleteObjectInput);
+
+    /**
+     * List objects from oss.
+     * @param listObjectsInput
+     * @return
+     */
+    Mono<ListObjectsOutput> listObjects(ListObjectsInput listObjectsInput);
+
+    /**
+     * Check if an object exists.
+     * @param doesObjectExistInput
+     * @return
+     */
+    DoesObjectExistOutput doesObjectExist(DoesObjectExistInput doesObjectExistInput);
     /*
 syntax = "proto3";
 
