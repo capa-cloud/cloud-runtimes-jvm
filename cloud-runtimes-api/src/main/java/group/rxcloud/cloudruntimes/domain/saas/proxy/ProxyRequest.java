@@ -14,55 +14,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas.proxy;
 
-import java.util.Arrays;
 import java.util.Map;
 
-/**
- * Put object to oss by bucket name and object key name。
- */
-public class PutObjectInput {
+public class ProxyRequest {
 
-    /**
-     * Byte stream for the specified object.
-     */
-    private byte[] data;
-    /**
-     * The bucket name for the object.
-     */
-    private String bucket;
-    /**
-     * Key of the object to put.
-     */
-    private String key;
-    /**
-     * Metadata of the object.
-     */
+    private String serviceName;
+
+    private String settingId;
+
+    private String url;
+
     private Map<String, String> metadata;
 
-    public byte[] getData() {
-        return data;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setData(byte[] data) {
-        this.data = data;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
-    public String getBucket() {
-        return bucket;
+    public String getSettingId() {
+        return settingId;
     }
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
+    public void setSettingId(String settingId) {
+        this.settingId = settingId;
     }
 
-    public String getKey() {
-        return key;
+    public String getUrl() {
+        return url;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Map<String, String> getMetadata() {
@@ -75,10 +62,10 @@ public class PutObjectInput {
 
     @Override
     public String toString() {
-        return "PutObjectInput{" +
-                "data=" + Arrays.toString(data) +
-                ", bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
+        return "ProxyRequest{" +
+                "serviceName='" + serviceName + '\'' +
+                ", settingId='" + settingId + '\'' +
+                ", url='" + url + '\'' +
                 ", metadata=" + metadata +
                 '}';
     }

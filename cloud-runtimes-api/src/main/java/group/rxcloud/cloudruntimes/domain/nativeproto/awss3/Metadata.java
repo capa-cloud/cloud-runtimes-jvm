@@ -16,41 +16,21 @@
  */
 package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
 
-/**
- * Delete object from oss by bucket name and object key name。
- */
-public class DeleteObjectInput {
+public final class Metadata {
 
     /**
-     * Required. The bucket name containing the object.
+     * Retrieve the S3 access key, used to identify the user interacting with S3.
      */
-    private String bucket;
+    public static final String ACCESS_KEY = "accessKey";
     /**
-     * Required. Key of the object to delete.
+     * Retrieve the S3 secret access key, used to authenticate the user interacting with S3.
      */
-    private String key;
+    public static final String SECRET_KEY = "secretKey";
+    /**
+     * Configure the endpoint with which the SDK should communicate.
+     */
+    public static final String ENDPOINT = "endpoint";
 
-    public String getBucket() {
-        return bucket;
-    }
-
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    @Override
-    public String toString() {
-        return "DeleteObjectInput{" +
-                "bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
-                '}';
+    private Metadata() {
     }
 }

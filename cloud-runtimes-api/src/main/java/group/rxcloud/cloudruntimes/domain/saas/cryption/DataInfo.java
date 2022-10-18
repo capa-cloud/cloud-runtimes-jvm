@@ -14,43 +14,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas.cryption;
 
-/**
- * Delete object from oss by bucket name and object key name。
- */
-public class DeleteObjectInput {
+public class DataInfo {
 
-    /**
-     * Required. The bucket name containing the object.
-     */
-    private String bucket;
-    /**
-     * Required. Key of the object to delete.
-     */
-    private String key;
+    private String status;
 
-    public String getBucket() {
-        return bucket;
+    private KeyInfo rawKey;
+
+    private String result;
+
+    public String getStatus() {
+        return status;
     }
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getKey() {
-        return key;
+    public KeyInfo getRawKey() {
+        return rawKey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setRawKey(KeyInfo rawKey) {
+        this.rawKey = rawKey;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 
     @Override
     public String toString() {
-        return "DeleteObjectInput{" +
-                "bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
+        return "DataInfo{" +
+                "status='" + status + '\'' +
+                ", rawKey=" + rawKey +
+                ", result='" + result + '\'' +
                 '}';
     }
 }

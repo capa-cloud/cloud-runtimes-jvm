@@ -14,43 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas;
+
+import group.rxcloud.cloudruntimes.domain.saas.email.SendEmailRequest;
+import group.rxcloud.cloudruntimes.domain.saas.email.SendEmailResponse;
+import group.rxcloud.cloudruntimes.domain.saas.email.SendEmailWithTemplateRequest;
+import group.rxcloud.cloudruntimes.domain.saas.email.SendEmailWithTemplateResponse;
+import reactor.core.publisher.Mono;
 
 /**
- * Delete object from oss by bucket name and object key name。
+ * The Saas email notify API.
  */
-public class DeleteObjectInput {
+public interface SaasEmailRuntimes {
 
     /**
-     * Required. The bucket name containing the object.
+     * Send email.
      */
-    private String bucket;
+    Mono<SendEmailResponse> sendEmail(SendEmailRequest request);
+
     /**
-     * Required. Key of the object to delete.
+     * Send email with template.
      */
-    private String key;
-
-    public String getBucket() {
-        return bucket;
-    }
-
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    @Override
-    public String toString() {
-        return "DeleteObjectInput{" +
-                "bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
-                '}';
-    }
+    Mono<SendEmailWithTemplateResponse> sendEmailWithTemplate(SendEmailWithTemplateRequest request);
 }

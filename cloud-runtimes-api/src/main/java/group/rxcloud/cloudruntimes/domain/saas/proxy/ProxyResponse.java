@@ -14,43 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas.proxy;
 
-/**
- * Delete object from oss by bucket name and object key name。
- */
-public class DeleteObjectInput {
+public class ProxyResponse {
 
-    /**
-     * Required. The bucket name containing the object.
-     */
-    private String bucket;
-    /**
-     * Required. Key of the object to delete.
-     */
-    private String key;
+    private ProxyInfo information;
 
-    public String getBucket() {
-        return bucket;
+    public ProxyInfo getInformation() {
+        return information;
     }
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
+    public void setInformation(ProxyInfo information) {
+        this.information = information;
     }
 
     @Override
     public String toString() {
-        return "DeleteObjectInput{" +
-                "bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
+        return "ProxyResponse{" +
+                "information=" + information +
                 '}';
     }
 }

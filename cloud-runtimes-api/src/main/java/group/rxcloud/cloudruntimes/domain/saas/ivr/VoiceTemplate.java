@@ -14,43 +14,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas.ivr;
 
-/**
- * Delete object from oss by bucket name and object key name。
- */
-public class DeleteObjectInput {
+import java.util.Map;
 
-    /**
-     * Required. The bucket name containing the object.
-     */
-    private String bucket;
-    /**
-     * Required. Key of the object to delete.
-     */
-    private String key;
+public class VoiceTemplate {
 
-    public String getBucket() {
-        return bucket;
+    // Required
+    private String templateId;
+
+    // Required
+    private Map<String, String> templateParams;
+
+    public String getTemplateId() {
+        return templateId;
     }
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
     }
 
-    public String getKey() {
-        return key;
+    public Map<String, String> getTemplateParams() {
+        return templateParams;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setTemplateParams(Map<String, String> templateParams) {
+        this.templateParams = templateParams;
     }
 
     @Override
     public String toString() {
-        return "DeleteObjectInput{" +
-                "bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
+        return "VoiceTemplate{" +
+                "templateId='" + templateId + '\'' +
+                ", templateParams=" + templateParams +
                 '}';
     }
 }

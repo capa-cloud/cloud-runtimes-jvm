@@ -14,43 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas;
+
+import group.rxcloud.cloudruntimes.domain.saas.cryption.CryptRequest;
+import group.rxcloud.cloudruntimes.domain.saas.cryption.CryptResponse;
+import reactor.core.publisher.Mono;
 
 /**
- * Delete object from oss by bucket name and object key name。
+ * The Saas cryption runtimes API.
  */
-public class DeleteObjectInput {
+public interface SaasCryptionRuntimes {
 
     /**
-     * Required. The bucket name containing the object.
+     * Encrypt key.
      */
-    private String bucket;
+    Mono<CryptResponse> encrypt(CryptRequest request);
+
     /**
-     * Required. Key of the object to delete.
+     * Decrypt key.
      */
-    private String key;
-
-    public String getBucket() {
-        return bucket;
-    }
-
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    @Override
-    public String toString() {
-        return "DeleteObjectInput{" +
-                "bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
-                '}';
-    }
+    Mono<CryptResponse> decrypt(CryptRequest request);
 }

@@ -14,34 +14,48 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas.email;
 
-/**
- * Check if an object exists.
- */
-public class DoesObjectExistInput {
-    /**
-     * Required. The bucket name containing the object.
-     */
-    private String bucket;
-    /**
-     * Required. Key of the object to get.
-     */
-    private String key;
+import java.util.List;
 
-    public String getBucket() {
-        return bucket;
+public class EmailAddress {
+
+    private String from;
+
+    private List<String> to;
+
+    private List<String> cc;
+
+    public String getFrom() {
+        return from;
     }
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
+    public void setFrom(String from) {
+        this.from = from;
     }
 
-    public String getKey() {
-        return key;
+    public List<String> getTo() {
+        return to;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setTo(List<String> to) {
+        this.to = to;
+    }
+
+    public List<String> getCc() {
+        return cc;
+    }
+
+    public void setCc(List<String> cc) {
+        this.cc = cc;
+    }
+
+    @Override
+    public String toString() {
+        return "EmailAddress{" +
+                "from='" + from + '\'' +
+                ", to=" + to +
+                ", cc=" + cc +
+                '}';
     }
 }

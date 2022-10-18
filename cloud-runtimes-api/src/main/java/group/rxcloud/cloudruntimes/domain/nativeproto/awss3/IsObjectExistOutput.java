@@ -17,40 +17,19 @@
 package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
 
 /**
- * Delete object from oss by bucket name and object key name。
+ * Check if an object exists
  */
-public class DeleteObjectInput {
-
+public class IsObjectExistOutput {
     /**
-     * Required. The bucket name containing the object.
+     * Object exist or not.
      */
-    private String bucket;
-    /**
-     * Required. Key of the object to delete.
-     */
-    private String key;
+    private Boolean fileExist;
 
-    public String getBucket() {
-        return bucket;
+    public Boolean getFileExist() {
+        return fileExist;
     }
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    @Override
-    public String toString() {
-        return "DeleteObjectInput{" +
-                "bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
-                '}';
+    public void setFileExist(Boolean fileExist) {
+        this.fileExist = fileExist;
     }
 }

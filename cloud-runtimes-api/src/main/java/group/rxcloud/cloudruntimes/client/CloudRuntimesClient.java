@@ -19,6 +19,7 @@ package group.rxcloud.cloudruntimes.client;
 import group.rxcloud.cloudruntimes.domain.CoreCloudRuntimes;
 import group.rxcloud.cloudruntimes.domain.EnhancedCloudRuntimes;
 import group.rxcloud.cloudruntimes.domain.NativeProtocolCloudRuntimes;
+import group.rxcloud.cloudruntimes.domain.SaasCloudRuntimes;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -29,7 +30,8 @@ import java.util.List;
 public interface CloudRuntimesClient extends AutoCloseable,
         CoreCloudRuntimes,
         EnhancedCloudRuntimes,
-        NativeProtocolCloudRuntimes {
+        NativeProtocolCloudRuntimes,
+        SaasCloudRuntimes {
 
     /**
      * Registry Component names.

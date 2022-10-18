@@ -14,47 +14,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas.im;
 
-/**
- * Check if an object exists
- */
-public class DoesObjectExistOutput {
-    /**
-     * Required. The bucket name containing the object.
-     */
-    private String bucket;
-    /**
-     * Required. Key of the object to get.
-     */
-    private String key;
+import java.util.List;
 
-    /**
-     * Does the object exist.
-     */
-    private Boolean isExists;
+public class IMAddress {
 
-    public String getBucket() {
-        return bucket;
+    private String sender;
+
+    private List<String> receivers;
+
+    public String getSender() {
+        return sender;
     }
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 
-    public String getKey() {
-        return key;
+    public List<String> getReceivers() {
+        return receivers;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setReceivers(List<String> receivers) {
+        this.receivers = receivers;
     }
 
-    public Boolean getExists() {
-        return isExists;
-    }
-
-    public void setExists(Boolean exists) {
-        isExists = exists;
+    @Override
+    public String toString() {
+        return "IMAddress{" +
+                "sender='" + sender + '\'' +
+                ", receivers=" + receivers +
+                '}';
     }
 }

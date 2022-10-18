@@ -14,43 +14,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
+package group.rxcloud.cloudruntimes.domain.saas.sms;
 
-/**
- * Delete object from oss by bucket name and object key name。
- */
-public class DeleteObjectInput {
+import java.util.List;
 
-    /**
-     * Required. The bucket name containing the object.
-     */
-    private String bucket;
-    /**
-     * Required. Key of the object to delete.
-     */
-    private String key;
+public class SMSAddress {
 
-    public String getBucket() {
-        return bucket;
+    private String sender;
+
+    private List<String> phoneNumbers;
+
+    public String getSender() {
+        return sender;
     }
 
-    public void setBucket(String bucket) {
-        this.bucket = bucket;
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 
-    public String getKey() {
-        return key;
+    public List<String> getPhoneNumbers() {
+        return phoneNumbers;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setPhoneNumbers(List<String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
 
     @Override
     public String toString() {
-        return "DeleteObjectInput{" +
-                "bucket='" + bucket + '\'' +
-                ", key='" + key + '\'' +
+        return "SMSAddress{" +
+                "sender='" + sender + '\'' +
+                ", phoneNumbers=" + phoneNumbers +
                 '}';
     }
 }

@@ -21,17 +21,25 @@ package group.rxcloud.cloudruntimes.domain.nativeproto.awss3;
  */
 public class ListObjectsInput {
     /**
-     * Number of keys for once request.
+     * Sets the maximum number of keys returned in the response. By default the action
+     * returns up to 1,000 key names. The response might contain fewer keys but will
+     * never contain more.
      */
     private Integer maxKeys;
     /**
-     * The key name of last one.
+     * Marker is where you want Amazon S3 to start listing from. Amazon S3 starts
+     * listing after this specified key. Marker can be any key in the bucket.
      */
-    private String lastKey;
+    private String marker ;
     /**
      * Bucket name.
      */
-    private String bucketName;
+    private String bucket;
+
+    /**
+     * Limits the response to keys that begin with the specified prefix.
+     */
+    private String prefix;
 
     public Integer getMaxKeys() {
         return maxKeys;
@@ -41,19 +49,27 @@ public class ListObjectsInput {
         this.maxKeys = maxKeys;
     }
 
-    public String getLastKey() {
-        return lastKey;
+    public String getMarker() {
+        return marker;
     }
 
-    public void setLastKey(String lastKey) {
-        this.lastKey = lastKey;
+    public void setMarker(String marker) {
+        this.marker = marker;
     }
 
-    public String getBucketName() {
-        return bucketName;
+    public String getBucket() {
+        return bucket;
     }
 
-    public void setBucketName(String bucketName) {
-        this.bucketName = bucketName;
+    public void setBucket(String bucket) {
+        this.bucket = bucket;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 }
