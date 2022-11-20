@@ -19,13 +19,13 @@ package group.rxcloud.cloudruntimes.domain.enhanced.sequencer;
 public class GetNextIdResponse {
 
     // The next unique id
-    private int nextId;
+    private long nextId;
 
-    public int getNextId() {
+    public long getNextId() {
         return nextId;
     }
 
-    public void setNextId(int nextId) {
+    public void setNextId(long nextId) {
         this.nextId = nextId;
     }
 

@@ -23,7 +23,7 @@
     <parent>
         <artifactId>cloud-runtimes</artifactId>
         <groupId>group.rxcloud</groupId>
-        <version>1.18.RELEASE</version>
+        <version>1.19.RELEASE</version>
     </parent>
 
     <artifactId>cloud-runtimes-layotto</artifactId>
