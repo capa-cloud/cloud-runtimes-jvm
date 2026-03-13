@@ -1,75 +1,190 @@
-# Cloud Runtimes JVM
+<p align="center">
+  <img src="./docs/banner.png" alt="Cloud Runtimes JVM" width="600">
+</p>
 
-Cloud Runtimes Specification for the JVM.
+<h1 align="center">Cloud Runtimes JVM</h1>
 
-## Introduction
+<p align="center">
+  <strong>Multi-Runtime Standard API for the JVM</strong>
+</p>
 
-The Multi-Runtime Standard API for Mecha architecture Projects:
+<p align="center">
+  <a href="https://github.com/capa-cloud/capa"><strong>Capa</strong></a> ·
+  <a href="https://dapr.io/"><strong>Dapr</strong></a> ·
+  <a href="https://github.com/mosn/layotto"><strong>Layotto</strong></a>
+</p>
 
-+ [capa](https://github.com/capa-cloud/capa) (used)
-+ [dapr](https://docs.dapr.io/concepts/building-blocks-concept/) (follow)
-+ [layotto](https://github.com/mosn/layotto) (follow)
-+ ....
+---
 
-## Motivation
+## 📖 Introduction
 
-[[Discussion] Future plans for dapr api](https://github.com/dapr/dapr/issues/2817)
+**Cloud Runtimes JVM** provides the **Multi-Runtime Standard API** for Mecha architecture projects on the Java Virtual Machine (JVM).
 
-[Make java-sdk as a independent project](https://github.com/mosn/layotto/issues/188)
+This project defines a unified, vendor-neutral API specification that enables Java applications to use standardized interfaces for distributed system capabilities across different runtime implementations.
 
-[Decompose core-API and enhanced-API.](https://github.com/dapr/dapr/issues/3600)
+### Supported Runtimes
 
-[Java sdk design](https://github.com/mosn/layotto/issues/206)
+| Runtime | Status | Description |
+|---------|--------|-------------|
+| [Capa](https://github.com/capa-cloud/capa) | ✅ Used | Primary Mecha SDK implementation |
+| [Dapr](https://dapr.io/) | 📋 Follow | Sidecar runtime reference |
+| [Layotto](https://github.com/mosn/layotto) | 📋 Follow | MOSN-based sidecar implementation |
 
-## Features
+---
 
-+ Service Invocation (RPC)
-+ Configuration Centor (Configuration)
-+ Publish/Subscribe (Pub/Sub)
-+ State Management (State)
-+ Secret Management (Secret)
-+ Binding External System (Binding)
-+ File System (File)
-+ Distribute Lock (Lock)
-+ Application Log/Metrics/Traces (Telemetry)
-+ Database (DB) -alpha
-+ Schedule (Schedule) -alpha
-+ RateLimit (RateLimit) -alpha
-+ Environment (Env) -alpha
-+ Native Redis (Redis) -alpha
-+ Native SQL (SQL) -alpha
-+ Native S3 (S3) -alpha
-+ ...
+## 🏗️ Architecture
 
-## Getting Started
+<p align="center">
+  <img src="./docs/architecture.png" alt="Cloud Runtimes Architecture" width="600">
+</p>
 
-#### Importing CloudRuntimes's Java SDK
+### Module Structure
 
-For a Maven project, add the following to your `pom.xml` file:
+```
+cloud-runtimes-jvm/
+├── cloud-runtimes-api          # Core API definitions
+├── cloud-runtimes-capa         # Capa SDK implementation
+├── cloud-runtimes-dapr         # Dapr runtime adapter
+├── cloud-runtimes-layotto      # Layotto runtime adapter
+└── pom.xml                     # Maven parent POM
+```
+
+**Key Design Principles:**
+- **API-First**: Clean separation between API specification and implementation
+- **Runtime Agnostic**: Works with Capa SDK, Dapr, Layotto, and future runtimes
+- **Vendor Neutral**: No lock-in to specific cloud providers or platforms
+
+---
+
+## ✨ Features
+
+<p align="center">
+  <img src="./docs/features.png" alt="Cloud Runtimes Features" width="600">
+</p>
+
+### Stable Features
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| 🔗 **Service Invocation** | RPC service-to-service communication | ✅ Stable |
+| ⚙️ **Configuration** | Dynamic configuration management | ✅ Stable |
+| 📨 **Pub/Sub** | Publish/Subscribe messaging | ✅ Stable |
+| 💾 **State Management** | Key-value state storage | ✅ Stable |
+| 🔐 **Secret Management** | Secure secret retrieval | ✅ Stable |
+| 🔌 **Binding** | External system integration | ✅ Stable |
+| 📁 **File System** | File storage operations | ✅ Stable |
+| 🔒 **Distributed Lock** | Distributed locking | ✅ Stable |
+| 📊 **Telemetry** | Logs, metrics, and traces | ✅ Stable |
+
+### Alpha Features
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| 🗄️ **Database** | SQL database operations | 🔬 Alpha |
+| ⏰ **Schedule** | Scheduled task management | 🔬 Alpha |
+| ⚡ **Rate Limit** | Rate limiting controls | 🔬 Alpha |
+| 🌍 **Environment** | Environment variable management | 🔬 Alpha |
+| 🔴 **Native Redis** | Direct Redis operations | 🔬 Alpha |
+| 📝 **Native SQL** | Direct SQL operations | 🔬 Alpha |
+| 📦 **Native S3** | Direct S3 operations | 🔬 Alpha |
+
+---
+
+## 🎯 Motivation
+
+Cloud Runtimes JVM was created to address the need for **standardized, portable APIs** in the Multi-Runtime ecosystem:
+
+- **[Future plans for Dapr API](https://github.com/dapr/dapr/issues/2817)** - Community discussion on API standardization
+- **[Make Java SDK independent](https://github.com/mosn/layotto/issues/188)** - Decoupling API from implementation
+- **[Decompose core and enhanced APIs](https://github.com/dapr/dapr/issues/3600)** - API layering strategy
+- **[Java SDK Design](https://github.com/mosn/layotto/issues/206)** - API design patterns
+
+---
+
+## 🚀 Getting Started
+
+### Maven
+
+Add the dependency to your `pom.xml`:
 
 ```xml
-<project>
-    ...
-    <dependencies>
-        ...
-        <!-- https://mvnrepository.com/artifact/group.rxcloud/cloud-runtimes-api -->
-        <dependency>
-            <groupId>group.rxcloud</groupId>
-            <artifactId>cloud-runtimes-api</artifactId>
-            <version>1.19.RELEASE</version>
-        </dependency>
-        ...
-    </dependencies>
-    ...
-</project>
+<dependency>
+    <groupId>group.rxcloud</groupId>
+    <artifactId>cloud-runtimes-api</artifactId>
+    <version>1.19.RELEASE</version>
+</dependency>
 ```
 
-For a Gradle project, add the following to your `build.gradle` file:
+### Gradle
+
+Add the dependency to your `build.gradle`:
 
 ```groovy
-dependencies {
-   // ...
-   // https://mvnrepository.com/artifact/group.rxcloud/cloud-runtimes-api
-   implementation group: 'group.rxcloud', name: 'cloud-runtimes-api', version: '1.19.RELEASE'
-}
+implementation 'group.rxcloud:cloud-runtimes-api:1.19.RELEASE'
 ```
+
+### Runtime Implementations
+
+Choose your runtime implementation:
+
+```xml
+<!-- For Capa SDK -->
+<dependency>
+    <groupId>group.rxcloud</groupId>
+    <artifactId>cloud-runtimes-capa</artifactId>
+    <version>1.19.RELEASE</version>
+</dependency>
+
+<!-- For Dapr -->
+<dependency>
+    <groupId>group.rxcloud</groupId>
+    <artifactId>cloud-runtimes-dapr</artifactId>
+    <version>1.19.RELEASE</version>
+</dependency>
+
+<!-- For Layotto -->
+<dependency>
+    <groupId>group.rxcloud</groupId>
+    <artifactId>cloud-runtimes-layotto</artifactId>
+    <version>1.19.RELEASE</version>
+</dependency>
+```
+
+---
+
+## 🌐 Ecosystem
+
+Cloud Runtimes JVM is part of the broader Capa Cloud ecosystem:
+
+- **[capa-java](https://github.com/capa-cloud/capa-java)** - Java SDK implementation
+- **[cloud-runtimes-python](https://github.com/capa-cloud/cloud-runtimes-python)** - Python API specification
+- **[cloud-runtimes-golang](https://github.com/capa-cloud/cloud-runtimes-golang)** - Go API specification
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📜 License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  <strong>Building portable, vendor-neutral cloud APIs for Java</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/capa-cloud">Capa Cloud</a> ·
+  <a href="https://capa-cloud.github.io/capa.io/">Documentation</a>
+</p>
