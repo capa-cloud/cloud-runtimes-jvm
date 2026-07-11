@@ -77,7 +77,8 @@
 
     <properties>
         <java.version>8</java.version>
-        <file.encoding>UTF-8</file.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.version>3.8.1</maven.version>
 
         <reactor-core.version>3.3.22.RELEASE</reactor-core.version>
@@ -395,6 +396,5 @@
     </build>
 
 </project>
-
 
 
