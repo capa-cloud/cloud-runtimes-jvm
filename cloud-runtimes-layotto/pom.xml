@@ -31,6 +31,7 @@
     <name>${project.artifactId}</name>
 
     <properties>
+        <bouncycastle.version>1.84</bouncycastle.version>
         <runtime-sdk.version>1.0.0</runtime-sdk.version>
     </properties>
 
@@ -45,6 +46,19 @@
             <artifactId>runtime-sdk</artifactId>
             <version>${runtime-sdk.version}</version>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bouncycastle</groupId>
+                    <artifactId>bcpkix-jdk15on</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk18on</artifactId>
+            <version>${bouncycastle.version}</version>
+            <optional>true</optional>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
@@ -58,11 +72,6 @@
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-api</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-api-metrics</artifactId>
             <optional>true</optional>
         </dependency>
     </dependencies>

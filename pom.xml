@@ -82,8 +82,7 @@
         <maven.version>3.8.1</maven.version>
 
         <reactor-core.version>3.3.22.RELEASE</reactor-core.version>
-        <open.telemetry.version>1.9.0</open.telemetry.version>
-        <open.telemetry.version.alpha>1.9.0-alpha</open.telemetry.version.alpha>
+        <open.telemetry.version>1.62.0</open.telemetry.version>
         <junit.version>5.3.1</junit.version>
 
         <checkstyle.version>3.1.2</checkstyle.version>
@@ -115,12 +114,6 @@
                 <groupId>io.opentelemetry</groupId>
                 <artifactId>opentelemetry-api</artifactId>
                 <version>${open.telemetry.version}</version>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>io.opentelemetry</groupId>
-                <artifactId>opentelemetry-api-metrics</artifactId>
-                <version>${open.telemetry.version.alpha}</version>
                 <optional>true</optional>
             </dependency>
 
@@ -396,5 +389,4 @@
     </build>
 
 </project>
-
 
