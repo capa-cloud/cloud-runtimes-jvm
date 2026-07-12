@@ -164,7 +164,7 @@ Cloud Runtimes JVM is part of the broader Capa Cloud ecosystem:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+We welcome contributions through the workflow below:
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
