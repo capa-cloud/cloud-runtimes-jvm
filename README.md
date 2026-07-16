@@ -2,110 +2,22 @@
   <img src="./docs/banner.png" alt="Cloud Runtimes JVM" width="600">
 </p>
 
-<h1 align="center">Cloud Runtimes JVM</h1>
+# Cloud Runtimes JVM
 
-<p align="center">
-  <strong>Multi-Runtime Standard API for the JVM</strong>
-</p>
+Vendor-neutral Java API contracts for multi-runtime application capabilities, plus partial client adapter modules for Capa, Dapr, and Layotto.
 
-<p align="center">
-  <a href="https://github.com/capa-cloud/capa"><strong>Capa</strong></a> ·
-  <a href="https://dapr.io/"><strong>Dapr</strong></a> ·
-  <a href="https://github.com/mosn/layotto"><strong>Layotto</strong></a>
-</p>
+[Capa Cloud](https://github.com/capa-cloud) · [Documentation](https://capa.rxcloud.group/) · [Issues](https://github.com/capa-cloud/cloud-runtimes-jvm/issues)
 
----
+## Requirements
 
-## 📖 Introduction
+- Java 8 or 11
+- Maven 3.8.1 or later
 
-**Cloud Runtimes JVM** provides the **Multi-Runtime Standard API** for Mecha architecture projects on the Java Virtual Machine (JVM).
+Current repository and Maven artifact version: `1.19.RELEASE`.
 
-This project defines a unified, vendor-neutral API specification that enables Java applications to use standardized interfaces for distributed system capabilities across different runtime implementations.
+## Add the API
 
-### Supported Runtimes
-
-| Runtime | Status | Description |
-|---------|--------|-------------|
-| [Capa](https://github.com/capa-cloud/capa) | ✅ Used | Primary Mecha SDK implementation |
-| [Dapr](https://dapr.io/) | 📋 Follow | Sidecar runtime reference |
-| [Layotto](https://github.com/mosn/layotto) | 📋 Follow | MOSN-based sidecar implementation |
-
----
-
-## 🏗️ Architecture
-
-<p align="center">
-  <img src="./docs/architecture.png" alt="Cloud Runtimes Architecture" width="600">
-</p>
-
-### Module Structure
-
-```
-cloud-runtimes-jvm/
-├── cloud-runtimes-api          # Core API definitions
-├── cloud-runtimes-capa         # Capa SDK implementation
-├── cloud-runtimes-dapr         # Dapr runtime adapter
-├── cloud-runtimes-layotto      # Layotto runtime adapter
-└── pom.xml                     # Maven parent POM
-```
-
-**Key Design Principles:**
-- **API-First**: Clean separation between API specification and implementation
-- **Runtime Agnostic**: Works with Capa SDK, Dapr, Layotto, and future runtimes
-- **Vendor Neutral**: No lock-in to specific cloud providers or platforms
-
----
-
-## ✨ Features
-
-<p align="center">
-  <img src="./docs/features.png" alt="Cloud Runtimes Features" width="600">
-</p>
-
-### Stable Features
-
-| Feature | Description | Status |
-|---------|-------------|--------|
-| 🔗 **Service Invocation** | RPC service-to-service communication | ✅ Stable |
-| ⚙️ **Configuration** | Dynamic configuration management | ✅ Stable |
-| 📨 **Pub/Sub** | Publish/Subscribe messaging | ✅ Stable |
-| 💾 **State Management** | Key-value state storage | ✅ Stable |
-| 🔐 **Secret Management** | Secure secret retrieval | ✅ Stable |
-| 🔌 **Binding** | External system integration | ✅ Stable |
-| 📁 **File System** | File storage operations | ✅ Stable |
-| 🔒 **Distributed Lock** | Distributed locking | ✅ Stable |
-| 📊 **Telemetry** | Logs, metrics, and traces | ✅ Stable |
-
-### Alpha Features
-
-| Feature | Description | Status |
-|---------|-------------|--------|
-| 🗄️ **Database** | SQL database operations | 🔬 Alpha |
-| ⏰ **Schedule** | Scheduled task management | 🔬 Alpha |
-| ⚡ **Rate Limit** | Rate limiting controls | 🔬 Alpha |
-| 🌍 **Environment** | Environment variable management | 🔬 Alpha |
-| 🔴 **Native Redis** | Direct Redis operations | 🔬 Alpha |
-| 📝 **Native SQL** | Direct SQL operations | 🔬 Alpha |
-| 📦 **Native S3** | Direct S3 operations | 🔬 Alpha |
-
----
-
-## 🎯 Motivation
-
-Cloud Runtimes JVM was created to address the need for **standardized, portable APIs** in the Multi-Runtime ecosystem:
-
-- **[Future plans for Dapr API](https://github.com/dapr/dapr/issues/2817)** - Community discussion on API standardization
-- **[Make Java SDK independent](https://github.com/mosn/layotto/issues/188)** - Decoupling API from implementation
-- **[Decompose core and enhanced APIs](https://github.com/dapr/dapr/issues/3600)** - API layering strategy
-- **[Java SDK Design](https://github.com/mosn/layotto/issues/206)** - API design patterns
-
----
-
-## 🚀 Getting Started
-
-### Maven
-
-Add the dependency to your `pom.xml`:
+Maven:
 
 ```xml
 <dependency>
@@ -115,76 +27,78 @@ Add the dependency to your `pom.xml`:
 </dependency>
 ```
 
-### Gradle
-
-Add the dependency to your `build.gradle`:
+Gradle:
 
 ```groovy
 implementation 'group.rxcloud:cloud-runtimes-api:1.19.RELEASE'
 ```
 
-### Runtime Implementations
+`cloud-runtimes-api` defines contracts and shared types. It does not connect to a runtime by itself.
 
-Choose your runtime implementation:
+## Modules and maturity
 
-```xml
-<!-- For Capa SDK -->
-<dependency>
-    <groupId>group.rxcloud</groupId>
-    <artifactId>cloud-runtimes-capa</artifactId>
-    <version>1.19.RELEASE</version>
-</dependency>
+| Module | Purpose | Current boundary |
+| --- | --- | --- |
+| `cloud-runtimes-api` | Core, enhanced, native-protocol, SaaS, client, and shared domain APIs | Compatibility-sensitive API definitions |
+| `cloud-runtimes-capa` | Capa client/provider scaffold | Partial implementation; many methods inherit unsupported defaults |
+| `cloud-runtimes-dapr` | Dapr client/provider scaffold | Partial implementation; verify every operation used by the application |
+| `cloud-runtimes-layotto` | Layotto client/provider scaffold | Partial implementation; verify every operation used by the application |
 
-<!-- For Dapr -->
-<dependency>
-    <groupId>group.rxcloud</groupId>
-    <artifactId>cloud-runtimes-dapr</artifactId>
-    <version>1.19.RELEASE</version>
-</dependency>
+The API module intentionally provides default methods that throw `UnsupportedOperationException`. An adapter artifact being present therefore does not guarantee full support for service invocation, configuration, pub/sub, state, bindings, files, locks, telemetry, or native APIs.
 
-<!-- For Layotto -->
-<dependency>
-    <groupId>group.rxcloud</groupId>
-    <artifactId>cloud-runtimes-layotto</artifactId>
-    <version>1.19.RELEASE</version>
-</dependency>
+Before selecting an adapter:
+
+1. Inspect its client implementation for the operations your application calls.
+2. Test those operations against the target runtime version.
+3. Handle unsupported operations explicitly.
+
+## API groups
+
+```text
+cloud-runtimes-api/src/main/java/group/rxcloud/cloudruntimes/
+├── client/                 # Client and provider contracts
+├── domain/core/            # Invocation, configuration, pub/sub, state, secrets, bindings
+├── domain/enhanced/        # Database, files, locks, telemetry and related APIs
+├── domain/nativeproto/     # Provider-shaped native protocols such as Redis, SQL and S3
+├── domain/saas/            # SaaS-shaped APIs
+└── utils/                  # Shared helpers such as TypeRef
 ```
 
----
+## Build and verify
 
-## 🌐 Ecosystem
+```bash
+git clone https://github.com/capa-cloud/cloud-runtimes-jvm.git
+cd cloud-runtimes-jvm
+mvn --batch-mode --no-transfer-progress --fail-fast clean verify \
+  -Pjacoco,rat,checkstyle \
+  -DskipTests=false \
+  -Dcheckstyle.skip=false \
+  -Drat.skip=false \
+  -Dmaven.javadoc.skip=true \
+  -Dgpg.skip=true
+```
 
-Cloud Runtimes JVM is part of the broader Capa Cloud ecosystem:
+CI runs this command on Java 8 and Java 11.
 
-- **[capa-java](https://github.com/capa-cloud/capa-java)** - Java SDK implementation
-- **[cloud-runtimes-python](https://github.com/capa-cloud/cloud-runtimes-python)** - Python API specification
-- **[cloud-runtimes-golang](https://github.com/capa-cloud/cloud-runtimes-golang)** - Go API specification
+When changing an API:
 
----
+1. Keep public signatures compatible or clearly document the breaking change.
+2. Update request/response types and adapter modules together where required.
+3. Add tests for implemented behavior and unsupported fallbacks.
+4. Do not place credentials, private endpoints, or customer data in examples or fixtures.
 
-## 🤝 Contributing
+## Design background
 
-We welcome contributions through the workflow below:
+- [Dapr API future plans](https://github.com/dapr/dapr/issues/2817)
+- [Layotto Java SDK design discussion](https://github.com/mosn/layotto/issues/188)
+- [Dapr API layering discussion](https://github.com/dapr/dapr/issues/3600)
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## Related projects
 
----
+- [capa-java](https://github.com/capa-cloud/capa-java)
+- [cloud-runtimes-python](https://github.com/capa-cloud/cloud-runtimes-python)
+- [cloud-runtimes-golang](https://github.com/capa-cloud/cloud-runtimes-golang)
 
-## 📜 License
+## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
-
----
-
-<p align="center">
-  <strong>Building portable, vendor-neutral cloud APIs for Java</strong>
-</p>
-
-<p align="center">
-  <a href="https://github.com/capa-cloud">Capa Cloud</a> ·
-  <a href="https://capa.rxcloud.group/">Documentation</a>
-</p>
+Apache License 2.0. See [LICENSE](LICENSE).
